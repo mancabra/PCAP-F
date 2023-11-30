@@ -1,0 +1,56 @@
+<div class="contenedor">
+    <div class="superior">
+        <div class="izquierda">
+            <div name="btnMenu" class="desplegable" (click)="desplegar()">
+                <label class="burbuja">
+                    &nbsp;
+                </label>
+                <label class="burbuja">
+                    &nbsp;
+                </label>
+                <label class="burbuja">
+                    &nbsp;
+                </label>
+            </div>
+        </div>
+
+        <div class="derecha">
+          <div class="cajaPerfil">
+            <button>
+                <img [src]=""  class="card-img" alt="...">
+            </button>
+          </div>
+        </div>
+    </div>
+
+    <div class="inferior">
+        <div [ngClass]="{'':abrirMenu, 'view':!abrirMenu}">
+        <div name="menu" class="menu">
+                <label name="ventana" class="opcion" *ngFor="let seleccionada of opciones let i = index" (click)="cambiar(seleccionada,i)">
+                    {{seleccionada}}
+                </label>
+    
+                <label name="opcion" class="relleno" >
+                    &nbsp;
+                </label>
+                <label name="opcion" class="relleno" >
+                    &nbsp;
+                </label>
+              
+                <div name="avisos" class="opcion" (click)="cambiar('Avisos',11)">
+                
+                    <label>Avisos de Privacidad</label>
+                </div>
+                <div name="acces" class="opcion" (click)="cambiar('Accesibilidad',12)">
+                
+                    <label>Accesibilidad</label>
+                </div>
+            </div>
+            
+        </div>
+
+        <div name="componente" class="componentes">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

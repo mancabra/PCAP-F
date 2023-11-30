@@ -1,0 +1,42 @@
+<div class="principal">
+    <img src="../assets/fondo.png" height="820px" width="100%">
+  </div>
+  
+  <div class="contenedor" style="font-family: sans-serif;">
+    <div class="izquierda">
+      &nbsp;
+    </div>
+    <div class="derecha">
+        <img name="btnInfo"  class="info" src="../assets/info-circle.png" (click)="mostrar()">
+
+        <div name="info" class="informacion">
+         <div name="textos" [ngClass]="{'view':ocultarInfo, '':!ocultarInfo}"> Plataforma para el seguimiento de procesos y control de actividades de Infotec.</div>
+        </div>
+
+      <div class="img">
+        <img src="../assets/infotec logo.png" height="50px">
+      </div>
+      <div class="divcorreo">
+        <p style="margin-bottom: 3px;">*Correo electronico:</p>
+        <input type="email" class="box" multiple="false" placeholder="miCorreo@infotec.com" [(ngModel)]="mail">
+      </div>
+      <div class="divpass">
+        <p style="margin-bottom: 3px;">*Contraseña</p>
+        <div class="cajaContrasena">
+          <input name="pass" type="{{pass}}" class="box long" minlength="8" maxlength="10" placeholder="········" [(ngModel)]="password">
+          <button class="mostar" (click)="mostrarPas()">
+            <img class="imagenes" src="{{ruta}}">
+          </button>
+        </div>
+      </div>
+      <br>
+      <br>
+  
+      <div style="width: 100%;">
+        <button class=" btn boton" (click)="log()">INGRESAR</button>
+      </div>
+      <br>
+      <br>
+      <a class="txt-recu" href="#">¿Olvidó su correo o contraseña?</a>
+    </div>
+  </div>

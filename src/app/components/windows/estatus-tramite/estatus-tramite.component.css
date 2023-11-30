@@ -1,0 +1,184 @@
+.coloresInfotec{
+    color:rgb(97, 34, 50);
+    color:rgb(147, 46, 66);
+    color:rgb(186, 116, 137);
+    color:rgb(24, 48, 43);
+    color:rgb(50, 90, 79);
+    color:rgb(151, 121, 77);
+    color:rgb(182, 150, 100);
+    color:rgb(218, 202, 168);
+}
+
+.contenedor{
+    display: grid;
+    width: 100%;
+    height: 20px;
+    place-items: center;
+    padding: 4rem;
+}
+.encabezado{
+    display: grid;
+    width: 100%;
+    height: 20px;
+    color: rgb(50, 90, 79);
+    font-size: xx-large;
+}
+.barraProgreso{
+    display: inline;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    width: 100%;
+    height: 20px;
+}
+.contenidos{
+    display: flex;
+    width: 100%;
+}
+.izquierda{
+    width: 48%;
+    margin-right: 2%;
+}
+.derecha{
+    display: grid;
+    width: 48%;
+    margin-left: 2%;
+}
+
+.encabezadoContenido{
+    display: flex;
+    width: 100%;
+}
+.nombreEstapa{
+    display: grid;
+    width: 58%;
+    margin-right: 2%;
+    font-size: large;
+    color: rgb(50, 90, 79);
+}
+.botonDerecha{
+    display: grid;
+    width: 30%;
+    margin-left: 2%;
+}
+.btInfotecV{
+    padding: 3px;
+    width: 100%;
+    border-color: rgb(50, 90, 79);
+    color: white;
+    background-color: rgb(50, 90, 79);
+}
+.fuenteBtn{
+    font-size: small;
+}
+.btInfotecV:hover{
+    border-color: rgb(24, 48, 43);
+    color: white;
+    background-color: rgb(24, 48, 43);
+}
+
+.decripcionEtapa{
+    margin-top: .3rem;
+    width: 100%;
+    color: rgb(182, 150, 100);
+    font-size: larger;
+}
+
+.tituloIrregularidad{
+    color: rgb(50, 90, 79);
+    padding-top: 3rem;
+}
+.contendedorBtn{
+    display: grid;
+    width: 100;
+    margin-top: 1rem;
+}
+.btInfotecR{
+    border-color: rgb(147, 46, 66);
+    color: white;
+    background-color: rgb(147, 46, 66);
+    font-size:large;
+}
+.btInfotecR:hover{
+ border-color: rgb(97, 34, 50);
+ color: white;
+ background-color: rgb(97, 34, 50);
+}
+
+.btInfotecVC{
+    border-color: rgb(50, 90, 79);
+    color: white;
+    background-color: rgb(50, 90, 79);
+    font-size:large;
+}
+.btInfotecVC:hover{
+ border-color: rgb(24, 48, 43);
+ color: white;
+ background-color:rgb(24, 48, 43)
+}
+.fondo{ 
+    height: 38%;
+    align-items: end;
+}
+
+.irregularidad{
+    display:grid;
+    width: 100%;
+}
+.margenes{
+    margin-top: 1rem;
+    padding: 0%;
+    margin-bottom: 3rem;
+}
+
+.irregularidadR{
+    border-color: rgb(147, 46, 66);
+}
+.irregularidadV{
+    border-color: rgb(50, 90, 79)
+}
+.contenidoIrregularidad{
+    display: flex;
+    width: 97%;
+    padding: 1rem;
+}
+.bordeR{
+    display: grid;
+    width: 3%;
+    height: 100%;
+    border-radius: 0px 5px 5px 0px;
+    background-color: rgb(147, 46, 66);
+}
+.bordeV{
+    display: grid;
+    width: 3%;
+    height: 100%;
+    border-radius: 0px 5px 5px 0px;
+    background-color: rgb(50, 90, 79)
+}
+.contenedorImagen{
+    display: grid; 
+}
+.imagenes{
+    opacity: 50%;
+    height: 60px;
+    width: 60px;
+}
+.nombreIrregularidad{
+    display: grid;
+    width: 100%;
+    place-items: center;
+    opacity: 50%;
+    color: black;
+}
+
+.dimenciones{
+    height: 92px;
+    margin-bottom: 1rem;
+}
+
+.contenedorCompletas{
+    display: grid;
+    opacity: .4;
+    place-items:start;
+
+}
