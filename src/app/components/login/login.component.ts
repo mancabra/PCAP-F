@@ -83,6 +83,7 @@ export class LoginComponent implements AfterViewInit{
       }
     }
     this.checkPass(user);
+    
   }
 
   checkPass(user: any) {
