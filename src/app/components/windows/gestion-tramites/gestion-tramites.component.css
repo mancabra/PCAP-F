@@ -1,0 +1,155 @@
+.mv-option-group {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.mv-option {
+  display: flex;
+  justify-content: space-evenly;
+  width: 25vw;
+  height: 15vh;
+  border: 1px solid #B2B2B2;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.mv-option:hover {
+  background-color: #E7E7E7;
+  color: #6A6A6A;
+}
+
+.mv-option:focus {
+  border: #BC955C;
+  box-shadow: 0 0 2px 2px #BC955C;
+}
+
+.mv-opt-title {
+  color: #10312B;
+  font-weight: bold;
+}
+
+.mv-opt-text {
+  color: #B2B2B2;
+  text-decoration: none;
+  word-break: break-word;
+  align-items: center;
+}
+
+.icon {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.inner-text, #project-id {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+#project-id {
+  color: #F7F7F7;
+  font-weight: bold;
+}
+
+.card {
+  background-color: #235B4E;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+}
+
+.search {
+  position: relative;
+}
+
+.input-field {
+  width: 30vw;
+  height: 2rem;
+  border-radius: 1rem 0 0 1rem;
+  border: 1px solid #F7F7F7;
+  border-right: none;
+  padding-left: 30px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+#input-icon {
+  position: absolute;
+  left: 10px;
+  top: 4px;
+}
+
+#search-btn {
+  width: 4rem;
+  height: 2rem;
+  background-color: #BC955C;
+  color: #F7F7F7;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 0 1rem 1rem 0;
+  border: 1px solid #F7F7F7;
+  border-left: none;
+}
+
+#search-btn:hover {
+  background-color: #DDC9A3;
+}
+
+#search-btn:active {
+  background-color: #9B7845;
+}
+
+table {
+  border: 2px solid #235B4E;
+  border-radius: 0 0 5px 5px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table tr:hover {
+  background-color: #E7E7E7;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-right-radius: 5px;
+}
+
+th {
+  border: 2px solid #F7F7F7;
+  border-bottom: 0;
+  background-color: #235B4E;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F7F7F7;
+}
+
+tbody {
+  background-color: #F7F7F7;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #BC955C;
+}
+
+.action-btn {
+  height: 1.8rem;
+  background-color: #BC955C;
+  border: none;
+  color: #F7F7F7;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+
+.action-btn:hover {
+  background-color: #DDC9A3;
+}
+
+.action-btn:active {
+  background-color: #9B7845;
+  color: #F7F7F7;
+}

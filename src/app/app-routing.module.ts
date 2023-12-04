@@ -6,6 +6,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { GenerarComponent } from './components/windows/generar/generar.component';
 import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
 import { EstatusTramiteComponent } from './components/windows/estatus-tramite/estatus-tramite.component';
+import {GestionTramitesComponent} from "./components/windows/gestion-tramites/gestion-tramites.component";
 import { authGuard } from "./services/auth.guard";
 
 
@@ -22,10 +23,11 @@ const routes: Routes = [
       { path: "tramites", component: TramitesActivosComponent  },
       { path: "proyectos", component: GenerarComponent  },
       { path: "calendario", component: GenerarComponent  },
+      { path: "gestion", component: GestionTramitesComponent },
       //secundarias
       { path:'tramites/activos/proyecto/estatus',component:EstatusTramiteComponent},
   ],},
-  {path:'**',redirectTo:'Principal/avisos',pathMatch:'full'}  
+  {path:'**',redirectTo:'Principal/avisos',pathMatch:'full'}
 ];
 
 @NgModule({

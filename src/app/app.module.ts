@@ -11,6 +11,7 @@ import { PrincipalComponent } from './components/windows/principal/principal.com
 import { GenerarComponent } from './components/windows/generar/generar.component';
 import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
 import { EstatusTramiteComponent } from './components/windows/estatus-tramite/estatus-tramite.component';
+import { GestionTramitesComponent } from './components/windows/gestion-tramites/gestion-tramites.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EstatusTramiteComponent } from './components/windows/estatus-tramite/es
     PrincipalComponent,
     GenerarComponent,
     TramitesActivosComponent,
-    EstatusTramiteComponent
+    EstatusTramiteComponent,
+    GestionTramitesComponent
   ],
   imports: [
     BrowserModule,
