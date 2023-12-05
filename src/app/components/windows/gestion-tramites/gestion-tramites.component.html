@@ -2,18 +2,10 @@
   <h4 class="mv-opt-title mt-5 mb-5">GESTION DE TRAMITES POR PROYECTO</h4>
 </div>
 <div class="container mb-5">
-  <div class="mv-option-group">
-    <a href="#" class="mv-option mv-opt-text">
+  <div class="mv-option-group" *ngFor="let p of proyectos">
+    <a href="#" class="mv-option mv-opt-text" (click)="seleccionarProyecto(p.id)">
       <div class="icon"><i class="bi bi-file-text-fill"></i></div>
-      <div class="inner-text">PROYECTO 007</div>
-    </a>
-    <a href="#" class="mv-option mv-opt-text">
-      <div class="icon"><i class="bi bi-file-text-fill"></i></div>
-      <div class="inner-text">PROYECTO 626</div>
-    </a>
-    <a href="#" class="mv-option mv-opt-text">
-      <div class="icon"><i class="bi bi-file-text-fill"></i></div>
-      <div class="inner-text">PROYECTO 123</div>
+      <div class="inner-text">PROYECTO {{ p.id }}</div>
     </a>
   </div>
 </div>
@@ -21,7 +13,7 @@
   <div class="card">
     <div class="card-body">
       <div class="d-flex justify-content-between mv-opt-text">
-        <div id="project-id">PROYECTO</div>
+        <div id="project-id">PROYECTO {{ idProyecto }}</div>
         <div class="d-flex justify-content-end align-items-middle">
           <div class="search">
             <i id="input-icon" class="bi bi-search"></i>
@@ -43,25 +35,9 @@
       </tr>
       </thead>
       <tbody class="table-body">
-      <tr>
-        <td>1</td>
-        <td>Juan Lagos</td>
-        <td>Trámite de credencial</td>
-        <td>
-          <button class="btn action-btn">VER TRAMITE</button>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Juan Lagos</td>
-        <td>Trámite de credencial</td>
-        <td>
-          <button class="btn action-btn">VER TRAMITE</button>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Juan Lagos</td>
+      <tr *ngFor="let pres of prestadores">
+        <td>{{ pres.id }}</td>
+        <td>{{ pres.nombre }} {{ pres.apellidoP }} {{ pres.apellidoM }}</td>
         <td>Trámite de credencial</td>
         <td>
           <button class="btn action-btn">VER TRAMITE</button>
