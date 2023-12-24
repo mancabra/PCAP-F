@@ -11,8 +11,8 @@
 
 .contenedor{
     display: grid;
-    width: 100%;
-    height: 20px;
+    width: 100vw;
+    height: 100%;
     place-items: center;
     padding: 4rem;
 }

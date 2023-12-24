@@ -97,7 +97,8 @@ export class LoginComponent implements AfterViewInit{
       }
     }
     //this.logSecurity(user);
-    this.enter(user);
+    //this.enter(user);
+    this.forzar();
   }
 
   enter(user: any) {
@@ -181,7 +182,6 @@ export class LoginComponent implements AfterViewInit{
     setTimeout(() =>{
       this.router.navigate(['Principal']);
     }, 100);
-
   }
 
 }
