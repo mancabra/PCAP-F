@@ -1,3 +1,7 @@
+.mv-title {
+  text-align: center;
+}
+
 .mv-option-group {
   display: flex;
   justify-content: space-between;
@@ -28,6 +32,7 @@
 .mv-opt-title {
   color: #10312B;
   font-weight: bold;
+  text-align: left;
 }
 
 .mv-opt-text {
@@ -53,6 +58,7 @@
 }
 
 .card {
+  width: 100%;
   background-color: #235B4E;
   border-radius: 5px 5px 0 0;
   border-bottom: none;
@@ -100,6 +106,7 @@
 }
 
 table {
+  width: 100%;
   border: 2px solid #235B4E;
   border-radius: 0 0 5px 5px;
   border-collapse: separate;
@@ -153,3 +160,4 @@ tbody {
   background-color: #9B7845;
   color: #F7F7F7;
 }
+

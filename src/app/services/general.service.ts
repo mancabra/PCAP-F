@@ -28,7 +28,7 @@ export class GeneralService {
     return this._http.get("http://localhost:8080/v1/obtenerLista").toPromise();
   }
 
-  // OBSERVABLES GENERALES 
+  // OBSERVABLES GENERALES
 
   getWindow(): Observable<Window> {
     return this.window$.asObservable();
@@ -38,7 +38,7 @@ export class GeneralService {
     setTimeout(() =>{
       this.window$.next(window);
     }, 200);
-  
+
   }
 
   // funcion para cerrar una sesión despues de un tiempo

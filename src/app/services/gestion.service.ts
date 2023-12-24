@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class GestionService {
-  urlEndPoint: string = "http://localhost:8080/v1";
+  urlEndPoint: string = "http://localhost:8080/api";
   constructor(private _http: HttpClient) { }
 
   getProyectos(): Observable<any> {

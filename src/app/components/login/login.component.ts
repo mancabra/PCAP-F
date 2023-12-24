@@ -41,7 +41,7 @@ export class LoginComponent implements AfterViewInit{
       setTimeout(() => {
         this.ocultarInfo = false;
       }, 150);
-  
+
       setTimeout(() => {
         this.ocultarInfo = true;
         Info.classList.remove("mostarInfo");
@@ -77,13 +77,13 @@ export class LoginComponent implements AfterViewInit{
       this.error = "Ambos campos son obligatorios";
       this.mailCheck == false;
     } else {
-      this.mailCheck = user.correo.includes("@infotec.com.mx");
+      this.mailCheck = user.correo.includes("@infotec.com");
       if (this.mailCheck == false) {
         this.errorMail = "El correo ingresado no pertenece a Infotec";
       }
     }
     this.checkPass(user);
-    
+
   }
 
   checkPass(user: any) {
@@ -94,9 +94,6 @@ export class LoginComponent implements AfterViewInit{
       if (user.password.length < 8) {
         this.errorPass = "La contraseña debe tener como mínimo 8 caracteres";
         this.passwordCheck = false;
-      } else if (user.password.length > 12) {
-        this.passwordCheck = false;
-        this.errorPass = "La contraseña no debe tener más de 12 caracteres";
       }
     }
     //this.logSecurity(user);

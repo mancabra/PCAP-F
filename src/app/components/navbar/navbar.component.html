@@ -1,56 +1,42 @@
-<div class="contenedor">
-    <div class="superior">
-        <div class="izquierda">
-            <div name="btnMenu" class="desplegable" (click)="desplegar()">
-                <label class="burbuja">
-                    &nbsp;
-                </label>
-                <label class="burbuja">
-                    &nbsp;
-                </label>
-                <label class="burbuja">
-                    &nbsp;
-                </label>
-            </div>
-        </div>
-
-        <div class="derecha">
-          <div class="cajaPerfil">
-            <button>
-                <img [src]=""  class="card-img" alt="...">
-            </button>
-          </div>
-        </div>
+<nav class="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CONTROL DE ACTIVIDADES Y PROCESOS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <i class="bi bi-list navbar-menu-icon"></i>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Principal/avisos">Principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Principal/generar">Generar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Principal/tramites">Trámites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Principal/generar">Proyectos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Principal/generar">Calendario</a>
+          </li>
+          <li class="nav-item mt-5">
+            <a class="nav-link active" aria-current="page" href="Principal/privacidad">Avisos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="Principal/Accesibilidad">Accesibilidad</a>
+          </li>
+        </ul>
+      </div>
     </div>
-
-    <div class="inferior">
-        <div [ngClass]="{'':abrirMenu, 'view':!abrirMenu}">
-        <div name="menu" class="menu">
-                <label name="ventana" class="opcion" *ngFor="let seleccionada of opciones let i = index" (click)="cambiar(seleccionada,i)">
-                    {{seleccionada}}
-                </label>
-    
-                <label name="opcion" class="relleno" >
-                    &nbsp;
-                </label>
-                <label name="opcion" class="relleno" >
-                    &nbsp;
-                </label>
-              
-                <div name="avisos" class="opcion" (click)="cambiar('Avisos',11)">
-                
-                    <label>Avisos de Privacidad</label>
-                </div>
-                <div name="acces" class="opcion" (click)="cambiar('Accesibilidad',12)">
-                
-                    <label>Accesibilidad</label>
-                </div>
-            </div>
-            
-        </div>
-
-        <div name="componente" class="componentes">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>

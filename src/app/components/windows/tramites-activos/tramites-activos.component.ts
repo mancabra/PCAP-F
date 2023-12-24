@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tramites-activos',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./tramites-activos.component.css']
 })
 export class TramitesActivosComponent {
+
+  constructor(private _router: Router) {
+  }
+
+  goToGestionPorProyecto() {
+    this._router.navigate(['Principal/gestion']).then();
+  }
 
 }

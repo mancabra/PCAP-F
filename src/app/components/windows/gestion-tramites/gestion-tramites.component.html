@@ -9,41 +9,39 @@
     </a>
   </div>
 </div>
-<div class="container">
-  <div class="card">
-    <div class="card-body">
-      <div class="d-flex justify-content-between mv-opt-text">
-        <div id="project-id">PROYECTO {{ idProyecto }}</div>
-        <div class="d-flex justify-content-end align-items-middle">
-          <div class="search">
-            <i id="input-icon" class="bi bi-search"></i>
-            <input type="text" placeholder="NOMBRE DEL PRESTADOR" class="form-group input-field">
-          </div>
-          <button id="search-btn" class="btn">BUSCAR</button>
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between mv-opt-text">
+      <div id="project-id">PROYECTO {{ idProyecto }}</div>
+      <div class="d-flex justify-content-end align-items-middle">
+        <div class="search">
+          <i id="input-icon" class="bi bi-search"></i>
+          <input type="text" placeholder="NOMBRE DEL PRESTADOR" class="form-group input-field">
         </div>
+        <button id="search-btn" class="btn">BUSCAR</button>
       </div>
     </div>
   </div>
-  <div class="table-responsive">
-    <table class="table table-borderless text-center align-middle">
-      <thead class="table-header">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Prestador</th>
-        <th scope="col">Trámite</th>
-        <th scope="col">Acciones</th>
-      </tr>
-      </thead>
-      <tbody class="table-body">
-      <tr *ngFor="let pres of prestadores">
-        <td>{{ pres.id }}</td>
-        <td>{{ pres.nombre }} {{ pres.apellidoP }} {{ pres.apellidoM }}</td>
-        <td>Trámite de credencial</td>
-        <td>
-          <button class="btn action-btn">VER TRAMITE</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-borderless text-center align-middle">
+    <thead class="table-header">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prestador</th>
+      <th scope="col">Trámite</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="table-body">
+    <tr *ngFor="let pres of prestadores">
+      <td>{{ pres.id }}</td>
+      <td>{{ pres.nombre }} {{ pres.apellidoP }} {{ pres.apellidoM }}</td>
+      <td>Trámite de credencial</td>
+      <td>
+        <button class="btn action-btn">VER TRAMITE</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>

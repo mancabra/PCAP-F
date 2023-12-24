@@ -48,7 +48,7 @@
     margin-top: 1rem;
     padding: 0%;
     margin-bottom: 3rem;
-    
+
 }
 
 .irregularidadV{
@@ -58,6 +58,7 @@
     display: flex;
     width: 97%;
     padding: 1rem;
+    text-decoration: none;
 }
 .bordeV{
     display: grid;
@@ -67,7 +68,7 @@
     background-color: rgb(50, 90, 79)
 }
 .contenedorImagen{
-    display: grid; 
+    display: grid;
     margin-right: 2rem;
 }
 .imagenes{
@@ -122,3 +123,14 @@
     color: white;
     border-color: rgb(97, 34, 50);
 }
+
+.gestion:hover {
+  background-color: rgb(225,225,225);
+  cursor: pointer;
+}
+
+.gestion:active {
+  background-color: rgb(200,200,200);
+  cursor: pointer;
+}
+
