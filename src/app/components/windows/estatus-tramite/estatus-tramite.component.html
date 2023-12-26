@@ -1,114 +1,112 @@
-<div class="contenedor">
-    <div class="encabezado">
-        nombrePrestador / nombreProceso
-    </div>
-    <div class="barraProgreso">
-        &nbsp;
-    </div>
-    <div class="contenidos">
-        <div class="izquierda">
-            <div class="encabezadoContenido">
-               <div class="nombreEstapa">
-                    <b> ACTIVIDAD ACTUAL:</b>
-               </div>
-               <div class="botonDerecha fuenteBtn">
-                    <button class="btn btInfotecV">COMPLETAR</button>
-               </div>
-            </div>
-            <div class="decripcionEtapa">
-               <b> descripcionDeProcesoActual</b>
-            </div>
+<div class="container mt-5">
+  <div class="encabezado mb-5">
+    nombrePrestador / nombreProceso
+  </div>
+  <div class="progress">
+    <div class="str-progress">{{ strProgreso }}</div> <i id="progress-icon" class="bi bi-clock-fill"></i>
+  </div>
+  <progress class="progress-bar mb-5" max="100" [value]="progreso"></progress>
+  <div class="contenidos">
+    <div class="izquierda">
+      <div class="encabezadoContenido">
+        <div class="nombreEstapa">
+          <b> ACTIVIDAD ACTUAL:</b>
         </div>
-        <div class="derecha">
-            <div class="encabezadoContenido">
-                <div class="nombreEstapa">
-                    <b> SIGUIENTE ACTIVIDAD:</b>
-                </div>
-             </div>
-             <div class="decripcionEtapa">
-                <b>descripcionDeSiguienteProceso</b> 
-             </div>
+        <div class="botonDerecha fuenteBtn">
+          <button class="btn btInfotecV">COMPLETAR</button>
         </div>
+      </div>
+      <div class="decripcionEtapa">
+        <b> descripcionDeProcesoActual</b>
+      </div>
     </div>
-
-    <div class="contenidos">
-        <div class="izquierda">
-            <div class="tituloIrregularidad">
-                <label>IRREGULARIDAD ACTUAL:</label>
-            </div>
-        
-            <div name="btnAgregarIrregularidad" class="contendedorBtn" style="display: none;">
-                <button class="btn btInfotecR" >AGREGAR IRREGULARIDAD</button>
-            </div>
-
-            <div class="irregularidad dimenciones">
-                <div class="card margenes irregularidadR">
-                    <div style="display: flex;">
-                        <div class="contenidoIrregularidad">
-                            <div class="contenedorImagen">
-                                <img class="imagenes" src="../assets/calendar-sad.png">
-                            </div>
-                            <div class="nombreIrregularidad">
-                                nombreIregularidad
-                            </div>
-                        </div>
-                        <div class="bordeR">
-                            &nbsp;
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div name="btnMarcarCompleta " class="contendedorBtn fondo">
-                <button class="btn btInfotecVC">MARCAR COMO COMPLETA</button>
-            </div>
+    <div class="derecha">
+      <div class="encabezadoContenido">
+        <div class="nombreEstapa">
+          <b> SIGUIENTE ACTIVIDAD:</b>
         </div>
-        <div class="derecha">
-            <div class="tituloIrregularidad">
-                <label>IRREGULARIDAD ACTUAL:</label>
-            </div>
-            <div class="contenedorCompletas">
-                <div class="irregularidad dimenciones">
-                    <div class="card margenes irregularidadV">
-                        <div style="display: flex;">
-                            <div class="contenidoIrregularidad">
-                                <div class="contenedorImagen">
-                                    <img class="imagenes" src="../assets/calendar-smile.png">
-                                </div>
-                                <div class="nombreIrregularidad">
-                                    nombreIregularidad
-                                </div>
-                            </div>
-                            <div class="bordeV">
-                                &nbsp;
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contenedorCompletas">
-                <div class="irregularidad dimenciones">
-                    <div class="card margenes irregularidadV">
-                        <div style="display: flex;">
-                            <div class="contenidoIrregularidad">
-                                <div class="contenedorImagen">
-                                    <img class="imagenes" src="../assets/calendar-smile.png">
-                                </div>
-                                <div class="nombreIrregularidad">
-                                    nombreIregularidad
-                                </div>
-                            </div>
-                            <div class="bordeV">
-                                &nbsp;
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-        </div>
+      </div>
+      <div class="decripcionEtapa">
+        <b>descripcionDeSiguienteProceso</b>
+      </div>
     </div>
+  </div>
+
+  <div class="contenidos">
+    <div class="izquierda">
+      <div class="tituloIrregularidad">
+        <label>IRREGULARIDAD ACTUAL:</label>
+      </div>
+
+      <div name="btnAgregarIrregularidad" class="contendedorBtn" style="display: none;">
+        <button class="btn btInfotecR" >AGREGAR IRREGULARIDAD</button>
+      </div>
+
+      <div class="irregularidad dimenciones">
+        <div class="card margenes irregularidadR">
+          <div style="display: flex;">
+            <div class="contenidoIrregularidad">
+              <div class="contenedorImagen">
+                <img class="imagenes" src="../assets/calendar-sad.png">
+              </div>
+              <div class="nombreIrregularidad">
+                nombreIregularidad
+              </div>
+            </div>
+            <div class="bordeR">
+              &nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div name="btnMarcarCompleta " class="contendedorBtn fondo">
+        <button class="btn btInfotecVC">MARCAR COMO COMPLETA</button>
+      </div>
+    </div>
+    <div class="derecha">
+      <div class="tituloIrregularidad">
+        <label>IRREGULARIDAD ACTUAL:</label>
+      </div>
+      <div class="contenedorCompletas">
+        <div class="irregularidad dimenciones">
+          <div class="card margenes irregularidadV">
+            <div style="display: flex;">
+              <div class="contenidoIrregularidad">
+                <div class="contenedorImagen">
+                  <img class="imagenes" src="../assets/calendar-smile.png">
+                </div>
+                <div class="nombreIrregularidad">
+                  nombreIregularidad
+                </div>
+              </div>
+              <div class="bordeV">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contenedorCompletas">
+        <div class="irregularidad dimenciones">
+          <div class="card margenes irregularidadV">
+            <div style="display: flex;">
+              <div class="contenidoIrregularidad">
+                <div class="contenedorImagen">
+                  <img class="imagenes" src="../assets/calendar-smile.png">
+                </div>
+                <div class="nombreIrregularidad">
+                  nombreIregularidad
+                </div>
+              </div>
+              <div class="bordeV">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-

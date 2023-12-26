@@ -10,16 +10,48 @@ import {EstatusService} from "../../../services/estatus.service";
   styleUrls: ['./estatus-tramite.component.css']
 })
 export class EstatusTramiteComponent implements OnInit {
-  idEstatus: number = 0;
   estatus: EstatusTramite = new EstatusTramite();
+  progreso: number = 0;
+  strProgreso: string = '';
 
   constructor(private _router: Router, private _estatusService: EstatusService) { }
 
+  setProgreso(estatusTramite: EstatusTramite) {
+    const ICON = document.getElementById("progress-icon");
+    if (ICON != null) {
+      ICON.classList.forEach(clase => {
+        if (clase.includes("bi-")) {
+          ICON.classList.remove(clase);
+        }
+      })
+    }
+
+    if (estatusTramite.estatus == 1) {
+      this.progreso = 50;
+      this.strProgreso = 'EN CURSO';
+      if (ICON != null) {
+        ICON.classList.add("bi-clock-fill");
+      }
+    } else if (estatusTramite.estatus == 2) {
+      this.progreso = 100;
+      this.strProgreso = 'COMPLETADO';
+      if (ICON != null) {
+        ICON.classList.add("bi-check-circle-fill");
+      }
+    } else {
+      this.strProgreso = 'INACTIVO';
+      if (ICON != null) {
+        ICON.classList.add("bi-dash-circle-fill");
+      }
+    }
+  }
+
   ngOnInit() {
-    /*
+    this._estatusService.getEstatus().subscribe(estatus => this.estatus = estatus);
+
     setTimeout(() => {
-      this._estatusService.getEstatus(this.idEstatus).subscribe(est => this.estatus = est);
+      this.setProgreso(this.estatus);
     }, 100);
-     */
+
   }
 }

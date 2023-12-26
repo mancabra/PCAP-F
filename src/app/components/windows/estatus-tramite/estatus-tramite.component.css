@@ -23,13 +23,30 @@
     color: rgb(50, 90, 79);
     font-size: xx-large;
 }
-.barraProgreso{
-    display: inline;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    width: 100%;
-    height: 20px;
+
+.progress {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  background-color: white;
+  font-weight: bold;
+  font-size: large;
+  color: #235B4E;
 }
+
+.str-progress {
+  margin-right: 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  border-radius: 7px;
+}
+
+progress::-webkit-progress-value { background: rgb(50, 90, 79); }
+
+
 .contenidos{
     display: flex;
     width: 100%;
@@ -115,7 +132,7 @@
  color: white;
  background-color:rgb(24, 48, 43)
 }
-.fondo{ 
+.fondo{
     height: 38%;
     align-items: end;
 }
@@ -156,7 +173,7 @@
     background-color: rgb(50, 90, 79)
 }
 .contenedorImagen{
-    display: grid; 
+    display: grid;
 }
 .imagenes{
     opacity: 50%;

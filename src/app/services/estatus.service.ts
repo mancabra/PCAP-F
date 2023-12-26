@@ -7,11 +7,11 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class EstatusService {
-  urlEndPoint: string = "http://localhost:8080/api";
+  urlEndPoint: string = "http://localhost:8080/";
 
   constructor(private _http: HttpClient) { }
 
-  getEstatus(id: number): Observable<EstatusTramite> {
-    return this._http.get<EstatusTramite>(this.urlEndPoint + "/estatus/" + id);
+  getEstatus(): Observable<EstatusTramite> {
+    return this._http.get<EstatusTramite>(this.urlEndPoint + "estatus/1");
   }
 }
