@@ -5,11 +5,11 @@
 
     <div class="contenidos">
         <div class="izquierda">
-            <div class="irregularidad dimenciones">
-                <div class="card margenes irregularidadV">
+            <div class="irregularidad dimenciones" (click)="goToGestionPorProyecto()">
+                <div class="card margenes irregularidadV gestion">
                     <div class="acciones">
                         <div class="btn-group">
-                            <label type="button" data-bs-toggle="dropdown"
+                            <label class="info" type="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <h3 >...</h3>
                             </label>
@@ -19,7 +19,7 @@
                         </div>
                     </div>
                     <div style="display: flex;">
-                        <div class="contenidoIrregularidad gestion" (click)="goToGestionPorProyecto()">
+                        <div class="contenidoIrregularidad">
                             <div class="contenedorImagen">
                               <img alt="imagenes" class="imagenes" src="../assets/clipboard-text.png">
                             </div>
@@ -30,8 +30,8 @@
                     </div>
                 </div>
             </div>
-            <div class="irregularidad dimenciones">
-                <div class="card margenes irregularidadV">
+            <div class="irregularidad dimenciones" (click)="goToGestionPorPrestador()">
+                <div class="card margenes irregularidadV gestion">
                     <div class="acciones">
                         <div class="btn-group">
                             <label type="button" data-bs-toggle="dropdown"
@@ -55,8 +55,8 @@
                     </div>
                 </div>
             </div>
-            <div class="irregularidad dimenciones">
-                <div class="card margenes irregularidadV">
+            <div class="irregularidad dimenciones" (click)="goToGestionPorPrioridad()">
+                <div class="card margenes irregularidadV gestion">
                     <div class="acciones">
                         <div class="btn-group">
                             <label type="button" data-bs-toggle="dropdown"

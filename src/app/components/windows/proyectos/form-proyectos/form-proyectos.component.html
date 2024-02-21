@@ -1,0 +1,49 @@
+<div class="row d-flex justify-content-center mt-2">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="nombre">Proyecto</label>
+            <input class="form-control form-control-md" type="text" id="nombre" name="nombre" [(ngModel)]="proyecto">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="gestores">Gestor</label>
+            <select class="form-control form-control-md" id="gestores" name="gestor">
+              <option value="0" hidden disabled selected>Seleccione un gestor de la lista</option>
+              <option *ngFor="let g of gestores" [value]="g.nombre + g.apellido">{{ g.nombre + ' ' + g.apellido }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Fecha de Inicio</mat-label>
+              <input matInput [matDatepicker]="picker1" name="fechaInicio" disabled [(ngModel)]="fechaInicio">
+              <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Fecha de Fin</mat-label>
+              <input matInput [matDatepicker]="picker2" name="fechaFin" disabled [(ngModel)]="fechaFin">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="d-flex justify-content-end align-items-middle">
+            <button *ngIf="!proyectoSeleccionado" class="btn btn-primary save-btn" type="submit" (click)="guardarProyecto()">
+              <div>Guardar</div>
+              <i class="bi bi-floppy2-fill"></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-end align-items-middle">
+            <button *ngIf="proyectoSeleccionado" class="btn btn-primary update-btn" type="submit" (click)="actualizarProyecto()">
+              <div>Actualizar</div>
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

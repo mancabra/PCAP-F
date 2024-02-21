@@ -1,11 +1,11 @@
 import {Prestador} from "./prestador";
+import {Gestor} from "./gestor";
 
 export class Proyecto {
   id: number = 0;
-  representante: string = "";
+  representante: Gestor = new Gestor();
   nombre: string = "";
-  progreso: number = 0;
   fechaInicio: string = "";
   fechaFin: string = "";
-  prestadores: Prestador[] = [];
+  prestadoresDeServicio: Prestador[] = [];
 }

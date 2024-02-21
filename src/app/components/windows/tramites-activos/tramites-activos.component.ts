@@ -12,7 +12,15 @@ export class TramitesActivosComponent {
   }
 
   goToGestionPorProyecto() {
-    this._router.navigate(['Principal/gestion']).then();
+    this._router.navigate(['Principal/gestion/proyectos']).then();
+  }
+
+  goToGestionPorPrestador() {
+    this._router.navigate(['Principal/gestion/prestadores']).then();
+  }
+
+  goToGestionPorPrioridad() {
+    this._router.navigate(['Principal/gestion/prioridad']).then();
   }
 
 }

@@ -1,12 +1,12 @@
 <div class="container">
   <h4 class="mv-opt-title mt-5 mb-5">GESTION DE TRAMITES POR PROYECTO</h4>
 </div>
-<div class="container mb-5">
+<div class="container projects mb-5">
   <div class="mv-option-group" *ngFor="let p of proyectos">
-    <a href="#" class="mv-option mv-opt-text" (click)="seleccionarProyecto(p.id)">
+    <button class="mv-option mv-opt-text" (click)="seleccionarProyecto(p.id)">
       <div class="icon"><i class="bi bi-file-text-fill"></i></div>
       <div class="inner-text">PROYECTO {{ p.id }}</div>
-    </a>
+    </button>
   </div>
 </div>
 <div class="card">
@@ -16,15 +16,15 @@
       <div class="d-flex justify-content-end align-items-middle">
         <div class="search">
           <i id="input-icon" class="bi bi-search"></i>
-          <input type="text" placeholder="NOMBRE DEL PRESTADOR" class="form-group input-field">
+          <input type="text" placeholder="NOMBRE DEL PRESTADOR" class="form-group input-field" [(ngModel)]="nombrePrestador">
         </div>
-        <button id="search-btn" class="btn">BUSCAR</button>
+        <button id="search-btn" class="btn" (click)="buscarPrestadores()">BUSCAR</button>
       </div>
     </div>
   </div>
 </div>
 <div class="table-responsive">
-  <table class="table table-borderless text-center align-middle">
+  <table class="table table-borderless text-center align-middle" *ngIf="busquedaPrestadores.length == 0">
     <thead class="table-header">
     <tr>
       <th scope="col">ID</th>
@@ -36,10 +36,30 @@
     <tbody class="table-body">
     <tr *ngFor="let pres of prestadores">
       <td>{{ pres.id }}</td>
-      <td>{{ pres.nombre }} {{ pres.apellidoP }} {{ pres.apellidoM }}</td>
-      <td>Trámite de credencial</td>
+      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
+      <td>{{ pres.tramites[0].tramite }}</td>
       <td>
-        <button class="btn action-btn">VER TRAMITE</button>
+        <button class="btn action-btn" (click)="goToTramites(pres.id)">VER TRAMITE</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <table class="table table-borderless text-center align-middle" *ngIf="busquedaPrestadores.length != 0">
+    <thead class="table-header">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prestador</th>
+      <th scope="col">Trámite</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="table-body">
+    <tr *ngFor="let pres of busquedaPrestadores">
+      <td>{{ pres.id }}</td>
+      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
+      <td>{{ pres.tramites[0].tramite }}</td>
+      <td>
+        <button class="btn action-btn" (click)="goToTramites(pres.id)">VER TRAMITE</button>
       </td>
     </tr>
     </tbody>

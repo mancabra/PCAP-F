@@ -8,6 +8,12 @@ import { TramitesActivosComponent } from './components/windows/tramites-activos/
 import { EstatusTramiteComponent } from './components/windows/estatus-tramite/estatus-tramite.component';
 import {GestionTramitesComponent} from "./components/windows/gestion-tramites/gestion-tramites.component";
 import { authGuard } from "./services/auth.guard";
+import {GestionPrestadoresComponent} from "./components/windows/gestion-prestadores/gestion-prestadores.component";
+import {GestionPrioridadComponent} from "./components/windows/gestion-prioridad/gestion-prioridad.component";
+import {ProyectosComponent} from "./components/windows/proyectos/proyectos.component";
+import {PrestadoresComponent} from "./components/windows/prestadores/prestadores.component";
+import {GestoresComponent} from "./components/windows/gestores/gestores.component";
+import {RegistroComponent} from "./components/windows/registro/registro.component";
 
 
 const routes: Routes = [
@@ -19,11 +25,15 @@ const routes: Routes = [
 
     children: [
       { path: "avisos", component: PrincipalComponent },
-      { path: "generar", component: GenerarComponent },
+      { path: "generar", component: RegistroComponent },
       { path: "tramites", component: TramitesActivosComponent  },
-      { path: "proyectos", component: GenerarComponent  },
+      { path: "proyectos", component: ProyectosComponent  },
+      { path: "prestadores", component: PrestadoresComponent },
+      { path: "gestores", component: GestoresComponent },
       { path: "calendario", component: GenerarComponent  },
-      { path: "gestion", component: GestionTramitesComponent },
+      { path: "gestion/proyectos", component: GestionTramitesComponent },
+      { path: "gestion/prestadores", component: GestionPrestadoresComponent },
+      { path: "gestion/prioridad", component: GestionPrioridadComponent },
       //secundarias
       { path:'tramites/activos/proyecto/estatus',component:EstatusTramiteComponent},
   ],},

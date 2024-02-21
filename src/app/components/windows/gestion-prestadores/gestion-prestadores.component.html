@@ -1,0 +1,99 @@
+<div class="container">
+  <h4 class="mv-opt-title mt-5 mb-5">GESTION DE TRAMITES POR PRESTADOR</h4>
+</div>
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-center">
+      <select id="dd-menu" class="dd-menu">
+        <option value="" disabled selected hidden>Buscar por</option>
+        <option class="dd-item" value="prestador">Prestador</option>
+        <option class="dd-item" value="proyecto">Proyecto</option>
+      </select>
+      <button id="reset-filters" (click)="quitarFiltro()">QUITAR FILTRO</button>
+      <div class="d-flex justify-content-end align-items-middle">
+        <div class="search">
+          <i id="input-icon" class="bi bi-search"></i>
+          <input type="text" placeholder="" class="form-group input-field" [(ngModel)]="busqueda">
+        </div>
+        <button id="search-btn" class="btn" (click)="buscarPor()">BUSCAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-borderless text-center align-middle"
+  *ngIf="busquedaProyecto.size == 0 && busquedaPrestador.size == 0">
+    <thead class="table-header">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prestador</th>
+      <th scope="col">Proyecto</th>
+      <th scope="col">Trámite</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="table-body">
+    <tr *ngFor="let pres of prestadores | keyvalue |
+    paginate: { itemsPerPage: 5, currentPage: p, totalItems: prestadores.size }">
+      <td>{{ pres.key.id }}</td>
+      <td>{{ pres.key.nombre }}  {{ pres.key.apellido }}</td>
+      <td>{{ pres.value }}</td>
+      <td>{{ pres.key.tramites[0].tramite }}</td>
+      <td>
+        <button class="btn action-btn">VER TRAMITE</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <table class="table table-borderless text-center align-middle"
+  *ngIf="busquedaPrestador.size > 0 && busquedaProyecto.size == 0">
+    <thead class="table-header">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prestador</th>
+      <th scope="col">Proyecto</th>
+      <th scope="col">Trámite</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="table-body">
+    <tr *ngFor="let pres of busquedaPrestador | keyvalue |
+    paginate: { itemsPerPage: 5, currentPage: p, totalItems: busquedaPrestador.size }">
+      <td>{{ pres.key.id }}</td>
+      <td>{{ pres.key.nombre }}  {{ pres.key.apellido }}</td>
+      <td>{{ pres.value }}</td>
+      <td>Trámite de credencial</td>
+      <td>
+        <button class="btn action-btn">VER TRAMITE</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <table class="table table-borderless text-center align-middle"
+  *ngIf="busquedaPrestador.size == 0 && busquedaProyecto.size > 0">
+    <thead class="table-header">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Prestador</th>
+      <th scope="col">Proyecto</th>
+      <th scope="col">Trámite</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody class="table-body">
+    <tr *ngFor="let pres of busquedaProyecto | keyvalue |
+    paginate: { itemsPerPage: 5, currentPage: p, totalItems: busquedaProyecto.size }">
+      <td>{{ pres.key.id }}</td>
+      <td>{{ pres.key.nombre }}  {{ pres.key.apellido }}</td>
+      <td>{{ pres.value }}</td>
+      <td>Trámite de credencial</td>
+      <td>
+        <button class="btn action-btn">VER TRAMITE</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>

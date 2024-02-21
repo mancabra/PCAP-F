@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.projects {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .mv-option-group {
   display: flex;
   justify-content: space-between;
@@ -17,6 +22,7 @@
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
+  background-color: white;
 }
 
 .mv-option:hover {
@@ -26,7 +32,7 @@
 
 .mv-option:focus {
   border: #BC955C;
-  box-shadow: 0 0 2px 2px #BC955C;
+  box-shadow: 0 0 3px 3px #BC955C;
 }
 
 .mv-opt-title {

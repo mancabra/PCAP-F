@@ -1,0 +1,52 @@
+<div class="row d-flex justify-content-center mt-2">
+  <div class="col">
+    <div class="card">
+      <div class="d-flex justify-content-end align-items-middle search-container">
+        <div class="search">
+          <i id="input-icon" class="bi bi-search"></i>
+          <input type="text" placeholder="PRESTADOR" class="form-group input-field">
+        </div>
+        <button id="search-btn" class="btn">BUSCAR</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-borderless text-center align-middle">
+        <thead class="table-header">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Email</th>
+          <th scope="col">Proyecto</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <tr *ngFor="let pres of prestadores | keyvalue |
+        paginate: { itemsPerPage: 5, currentPage: p, totalItems: prestadores.size }">
+          <td>{{ pres.key.id }}</td>
+          <td>{{ pres.key.nombre }}</td>
+          <td>{{ pres.key.apellido }}</td>
+          <td id="email">{{ pres.key.email }}</td>
+          <td>{{ pres.value }}</td>
+          <td>
+            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarPrestador(pres.key)">
+              <i class="bi bi-check-circle-fill"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn del-btn" title="Eliminar" (click)="eliminarPrestador(pres.key.id)">
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+

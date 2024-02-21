@@ -1,0 +1,71 @@
+<div class="row d-flex justify-content-center mt-2">
+  <div class="col">
+    <div class="card">
+      <div class="d-flex justify-content-end align-items-middle search-container">
+        <div class="search">
+          <i id="input-icon" class="bi bi-search"></i>
+          <input type="text" placeholder="PROYECTO" class="form-group input-field" [(ngModel)]="nombreProyecto">
+        </div>
+        <button id="search-btn" class="btn" (click)="buscarProyecto()">BUSCAR</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-borderless text-center align-middle" *ngIf="!proyectoEncontrado">
+        <thead class="table-header">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Proyecto</th>
+          <th scope="col">Inicio</th>
+          <th scope="col">Fin</th>
+          <th scope="col">Gestor</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <tr *ngFor="let p of proyectos">
+          <td>{{ p.id }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.fechaInicio | date: "dd-MM-yy" }}</td>
+          <td>{{ p.fechaFin | date: "dd-MM-yy" }}</td>
+          <td>{{ p.representante.nombre }} {{ p.representante.apellido }}</td>
+          <td>
+            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarProyecto(p)"><i class="bi bi-check-circle-fill"></i></button>
+          </td>
+          <td>
+            <button class="btn del-btn" title="Eliminar" (click)="eliminarProyecto(p.id)"><i class="bi bi-trash3-fill"></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <table class="table table-borderless text-center align-middle" *ngIf="proyectoEncontrado">
+        <thead class="table-header">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Proyecto</th>
+          <th scope="col">Inicio</th>
+          <th scope="col">Fin</th>
+          <th scope="col">Gestor</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <tr>
+          <td>{{ proyecto.id }}</td>
+          <td>{{ proyecto.nombre }}</td>
+          <td>{{ proyecto.fechaInicio | date }}</td>
+          <td>{{ proyecto.fechaFin | date }}</td>
+          <td>{{ proyecto.representante.nombre }} {{ proyecto.representante.apellido }}</td>
+          <td>
+            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarProyecto(proyecto)"><i class="bi bi-check-circle-fill"></i></button>
+          </td>
+          <td>
+            <button class="btn del-btn" title="Eliminar" (click)="eliminarProyecto(proyecto.id)"><i class="bi bi-trash3-fill"></i></button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

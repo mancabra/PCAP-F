@@ -1,6 +1,6 @@
-<div class="container mt-5">
-  <div class="encabezado mb-5">
-    nombrePrestador / nombreProceso
+<div class="container mt-5 mb-5">
+  <div class="encabezado text-center mb-5">
+    {{ prestador.nombre }} {{prestador.apellido}} / {{ prestador.tramites[0].tramite }}
   </div>
   <div class="progress">
     <div class="str-progress">{{ strProgreso }}</div> <i id="progress-icon" class="bi bi-clock-fill"></i>
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="decripcionEtapa">
-        <b> descripcionDeProcesoActual</b>
+        <b>{{ prestador.tramites[0].descripcion }}</b>
       </div>
     </div>
     <div class="derecha">

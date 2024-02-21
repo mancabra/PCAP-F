@@ -1,0 +1,50 @@
+<div class="row d-flex justify-content-center mt-2">
+  <div class="col">
+    <div class="card">
+      <div class="d-flex justify-content-end align-items-middle search-container">
+        <div class="search">
+          <i id="input-icon" class="bi bi-search"></i>
+          <input type="text" placeholder="GESTOR" class="form-group input-field">
+        </div>
+        <button id="search-btn" class="btn">BUSCAR</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-borderless text-center align-middle">
+        <thead class="table-header">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+        <tr *ngFor="let gestor of gestores |
+        paginate: { itemsPerPage: 5, currentPage: p, totalItems: gestores.length }">
+          <td>{{ gestor.id }}</td>
+          <td>{{ gestor.nombre }}</td>
+          <td>{{ gestor.apellido }}</td>
+          <td id="email">{{ gestor.email }}</td>
+          <td>
+            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarGestor(gestor)">
+              <i class="bi bi-check-circle-fill"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn del-btn" title="Eliminar" (click)="eliminarGestor(gestor.id)">
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>
+

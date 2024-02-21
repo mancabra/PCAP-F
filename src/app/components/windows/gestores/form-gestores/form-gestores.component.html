@@ -1,0 +1,40 @@
+<div class="row d-flex justify-content-center mt-2">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="nombre">Nombre</label>
+            <input class="form-control form-control-md" type="text" id="nombre" name="nombre" [(ngModel)]="nombre">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="apellido">Apellido</label>
+            <input class="form-control form-control-md" type="text" id="apellido" name="apellido" [(ngModel)]="apellido">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="email">Email</label>
+            <input class="form-control form-control-md" type="text" id="email" name="email" [(ngModel)]="email">
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="password">Contraseña</label>
+            <input class="form-control form-control-md" type="password" id="password" name="password" [(ngModel)]="password">
+          </div>
+          <div class="d-flex justify-content-end align-items-middle">
+            <button *ngIf="!gestorSeleccionado" class="btn btn-primary save-btn" type="submit" (click)="guardarGestor()">
+              <div>Guardar</div>
+              <i class="bi bi-floppy2-fill"></i>
+            </button>
+          </div>
+          <div class="d-flex justify-content-end align-items-middle">
+            <button *ngIf="gestorSeleccionado" class="btn btn-primary update-btn" type="submit" (click)="actualizarGestor()">
+              <div>Actualizar</div>
+              <i class="bi bi-arrow-clockwise"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+

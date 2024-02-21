@@ -1,0 +1,133 @@
+table {
+  border: 2px solid rgb(147, 46, 66);
+  border-radius: 0 0 5px 5px ;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+
+table th:last-child {
+  border-left: none;
+}
+
+table th:nth-child(6) {
+  border-right: none;
+}
+
+th {
+  background-color: #10312B;
+  color: #F7F7F7;
+  border: 2px solid #F7F7F7;
+  border-bottom: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tbody {
+  background-color: #F7F7F7;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #BC955C;
+}
+
+tr:hover {
+  background-color: #E7E7E7;
+}
+
+#email {
+  text-transform: none;
+}
+
+.sel-btn {
+  height: 3rem;
+  width: 3rem;
+  background-color: #BC955C;
+  color: #F7F7F7;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1.5rem;
+}
+
+.sel-btn:hover {
+  background-color: #DDC9A3;
+}
+
+.sel-btn:active {
+  background-color: #9B7845;
+}
+
+.del-btn {
+  height: 3rem;
+  width: 3rem;
+  background-color: rgb(97, 34, 50);
+  color: #F7F7F7;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1.5rem;
+}
+
+.del-btn:hover {
+  background-color: rgb(147, 46, 66);
+}
+
+.del-btn:active {
+  background-color: #491721;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  height: 3rem;
+  background-color: #10312B;
+  border: 2px solid rgb(147, 46, 66);
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.search-container {
+  margin-right: 5px;
+}
+
+.search {
+  position: relative;
+}
+
+.input-field {
+  width: 30vw;
+  height: 2rem;
+  border-radius: 1rem 0 0 1rem;
+  border: 1px solid #F7F7F7;
+  border-right: none;
+  padding-left: 30px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+#input-icon {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+#search-btn {
+  width: 4rem;
+  height: 2rem;
+  background-color: #BC955C;
+  color: #F7F7F7;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 0 1rem 1rem 0;
+  border: 1px solid #F7F7F7;
+  border-left: none;
+}
+
+#search-btn:hover {
+  background-color: #DDC9A3;
+}
+
+#search-btn:active {
+  background-color: #9B7845;
+}

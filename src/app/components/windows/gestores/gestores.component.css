@@ -1,0 +1,15 @@
+.mv-title {
+  font-weight: bold;
+  color: #BC955C;
+  text-transform: uppercase;
+}
+
+.form {
+  width: 40%;
+  height: auto;
+}
+
+.list {
+  width: 60%;
+  height: auto;
+}
