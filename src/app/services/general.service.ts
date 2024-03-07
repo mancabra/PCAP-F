@@ -7,7 +7,7 @@ import { Window } from './entity/window';
   providedIn: 'root'
 })
 export class GeneralService {
-  GeneralLink: string = "http://localhost:8080";
+  GeneralLink: string = "http://localhost:8090";
 
   private window$ = new Subject<Window>();
   window: Window = new Window;
@@ -21,11 +21,11 @@ export class GeneralService {
   }
 
   logSecurity(UserDTO: any){
-    return this._http.get("http://localhost:8080/v1/LogIn?mail=" +UserDTO.correo  +"&pass=" + UserDTO.password).toPromise();
+    return this._http.get("http://localhost:8090/v1/LogIn?mail=" +UserDTO.correo  +"&pass=" + UserDTO.password).toPromise();
   }
 
   obtenerLista(){
-    return this._http.get("http://localhost:8080/v1/obtenerLista").toPromise();
+    return this._http.get("http://localhost:8090/v1/obtenerLista").toPromise();
   }
 
   // OBSERVABLES GENERALES

@@ -78,7 +78,7 @@ export class GestionPrestadoresComponent implements OnInit {
             proyecto.prestadoresDeServicio.forEach(prestador => {
               if (prestador.tramites.length == 0) {
                 let sinTramites = new Tramite();
-                sinTramites.tramite = "Sin tramites activos";
+                sinTramites.nombre = "Sin tramites activos";
                 prestador.tramites = [sinTramites];
                 this.prestadores.set(prestador, proyecto.nombre)
               } else {

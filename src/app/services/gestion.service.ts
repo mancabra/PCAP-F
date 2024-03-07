@@ -10,14 +10,15 @@ import {Prestador} from "../models/prestador";
 export class GestionService {
   urlEndPoint: string = "http://localhost:8090/api";
   $idPrestador: number = 0;
+  $idTramite: number = 0;
   constructor(private _http: HttpClient) { }
 
   getProyectos(): Observable<Proyecto[]> {
-    return this._http.get<Proyecto[]>(this.urlEndPoint + "/proyectos");
+    return this._http.get<Proyecto[]>(this.urlEndPoint + "/listaDeProyectos");
   }
 
-  getProyecto(id: number): Observable<Proyecto> {
-    return this._http.get<Proyecto>(this.urlEndPoint + "/proyecto/" + id);
+  getProyecto(id: number): Observable<any> {
+    return this._http.get<any>(this.urlEndPoint + "/buscarProyecto/" + id);
   }
 
   getPrestadores(): Observable<Prestador[]> {
@@ -34,5 +35,11 @@ export class GestionService {
 
   getPrestadorID() {
     return this.$idPrestador;
+  }
+  getTramiteID(){
+    return this.$idTramite;
+  }
+  setTramiteID(id:number){
+    this.$idTramite = id;
   }
 }

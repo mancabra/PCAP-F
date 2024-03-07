@@ -52,7 +52,7 @@ export class GestionPrioridadComponent implements OnInit {
 
   buscarPorTramite(tramite: string) {
     this.prestadores.forEach(prestador => {
-      let tramitePrestador = prestador.tramites[0].tramite;
+      let tramitePrestador = prestador.tramites[0].nombre;
       if (tramitePrestador.toLowerCase().includes(tramite.toLowerCase())) {
         this.busquedaTramite.push(prestador);
       }

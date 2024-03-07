@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class EstatusService {
-  urlEndPoint: string = "http://localhost:8080/";
+  urlEndPoint: string = "http://localhost:8090/";
 
   constructor(private _http: HttpClient) { }
 

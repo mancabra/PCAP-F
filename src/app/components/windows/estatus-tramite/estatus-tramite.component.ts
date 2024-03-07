@@ -6,6 +6,8 @@ import {EstatusService} from "../../../services/estatus.service";
 import {GestionService} from "../../../services/gestion.service";
 import {Subscriber} from "rxjs";
 import {Prestador} from "../../../models/prestador";
+import { Irregularidad } from 'src/app/models/irregularidad';
+import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-estatus-tramite',
@@ -14,11 +16,15 @@ import {Prestador} from "../../../models/prestador";
 })
 export class EstatusTramiteComponent implements OnInit {
   idPrestador: number = 0;
+  idTramite: number = 0;
   prestador: Prestador = new Prestador();
   progreso: number = 0;
   strProgreso: string = '';
+  listaIrregularidades: any[] = [];
 
-  constructor(private _router: Router, private _gestionService: GestionService, private _estatusService: EstatusService) { }
+
+
+  constructor(private _router: Router, private _gestionService: GestionService, private _estatusService: EstatusService,private _irregularidadService: ServiceService) { }
 
   setProgreso(estatus: number) {
     const ICON = document.getElementById("progress-icon");
@@ -51,7 +57,9 @@ export class EstatusTramiteComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.idTramite = this._gestionService.getTramiteID();
     this.idPrestador = this._gestionService.getPrestadorID();
+    this.obtenerIrregularidadesPorTramite(this.idTramite);
     setTimeout(() => {
       this._gestionService.getPrestador(this.idPrestador).subscribe(prestador => this.prestador = prestador);
     }, 10);
@@ -62,8 +70,18 @@ export class EstatusTramiteComponent implements OnInit {
 
     setTimeout(() => {
       console.log(this.prestador);
-      this.setProgreso(this.prestador.tramites[0].estatus);
+      //this.setProgreso(this.prestador.tramites[0].estatus);
     }, 100);
 
   }
+
+  obtenerIrregularidadesPorTramite(id:number){
+    this._irregularidadService.obtenerPorTramite(id).subscribe(data=>{
+      this.listaIrregularidades=data;
+    });
+  }
+  nuevo(){
+    this._router.navigate(["add"]);
+  }
+
 }

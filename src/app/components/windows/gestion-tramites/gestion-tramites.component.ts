@@ -4,6 +4,7 @@ import {GestionService} from "../../../services/gestion.service";
 import {Proyecto} from "../../../models/proyecto";
 import {Prestador} from "../../../models/prestador";
 import {Router} from "@angular/router";
+import { ServiceService } from 'src/app/Service/service.service';
 
 @Component({
   selector: 'app-gestion-tramites',
@@ -16,8 +17,9 @@ export class GestionTramitesComponent implements OnInit, OnDestroy {
   busquedaPrestadores: Prestador[] = [];
   idProyecto: number = 0;
   nombrePrestador: string = "";
+  listaTramites: any[]=[];
 
-  constructor(private _gestionService: GestionService, private _router: Router) { }
+  constructor(private _gestionService: GestionService, private _router: Router,private _service:ServiceService) { }
 
   buscarPrestadores() {
     this.busquedaPrestadores = [];
@@ -28,12 +30,20 @@ export class GestionTramitesComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  obtenerTramites(id:number){
+    this._service.obtenerTamitesPorIdProyecto(id).subscribe(data=>{
+      this.listaTramites=data;
+    })
+  }
+
   seleccionarProyecto(id: number) {
     this.idProyecto = id;
+    this.obtenerTramites(id);
     setTimeout(() => {
       this._gestionService.getProyecto(id).subscribe(
-        proyecto => {
-          this.prestadores = proyecto.prestadoresDeServicio;
+        data => {
+          this.prestadores = data.proyecto.prestadoresDeServicio;
         }
       )
     }, 100);
@@ -41,7 +51,7 @@ export class GestionTramitesComponent implements OnInit, OnDestroy {
   }
 
   goToTramites(id: number) {
-    this._gestionService.setPrestadorID(id);
+    this._gestionService.setTramiteID(id);
     this._router.navigate(['Principal/tramites/activos/proyecto/estatus']).then();
   }
 

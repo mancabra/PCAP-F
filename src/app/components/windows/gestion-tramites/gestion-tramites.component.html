@@ -34,12 +34,12 @@
     </tr>
     </thead>
     <tbody class="table-body">
-    <tr *ngFor="let pres of prestadores">
-      <td>{{ pres.id }}</td>
-      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
-      <td>{{ pres.tramites[0].tramite }}</td>
+    <tr *ngFor="let tramite of listaTramites">
+      <td>{{ tramite.id }}</td>
+      <td>{{ tramite.nombrePrestador }}</td>
+      <td>{{ tramite.nombre }}</td>
       <td>
-        <button class="btn action-btn" (click)="goToTramites(pres.id)">VER TRAMITE</button>
+        <button class="btn action-btn" (click)="goToTramites(tramite.id)">VER TRAMITE X</button>
       </td>
     </tr>
     </tbody>
@@ -55,9 +55,9 @@
     </thead>
     <tbody class="table-body">
     <tr *ngFor="let pres of busquedaPrestadores">
-      <td>{{ pres.id }}</td>
-      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
-      <td>{{ pres.tramites[0].tramite }}</td>
+      <td>{{ pres.usuario.id }}</td>
+      <td>{{ pres.usuario.nombre }} {{ pres.usuario.apellidoP }}</td>
+      <td>{{ pres.tramites[0].nombre }}</td>
       <td>
         <button class="btn action-btn" (click)="goToTramites(pres.id)">VER TRAMITE</button>
       </td>

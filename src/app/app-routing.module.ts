@@ -14,6 +14,10 @@ import {ProyectosComponent} from "./components/windows/proyectos/proyectos.compo
 import {PrestadoresComponent} from "./components/windows/prestadores/prestadores.component";
 import {GestoresComponent} from "./components/windows/gestores/gestores.component";
 import {RegistroComponent} from "./components/windows/registro/registro.component";
+import { ListarComponent } from './Irregularidad/listar/listar.component';
+import { AddComponent } from './Irregularidad/add/add.component';
+import { EditComponent } from './Irregularidad/edit/edit.component';
+import { DeleteComponent } from './Irregularidad/delete/delete.component';
 
 
 const routes: Routes = [
@@ -24,6 +28,10 @@ const routes: Routes = [
   component: NavbarComponent,
 
     children: [
+      { path: "listar", component: ListarComponent },
+      {path:'add',component:AddComponent},
+      {path:'edit',component:EditComponent},
+      {path:'delete',component:DeleteComponent},
       { path: "avisos", component: PrincipalComponent },
       { path: "generar", component: RegistroComponent },
       { path: "tramites", component: TramitesActivosComponent  },

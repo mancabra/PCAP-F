@@ -31,6 +31,10 @@ import { GestoresComponent } from './components/windows/gestores/gestores.compon
 import { FormGestoresComponent } from './components/windows/gestores/form-gestores/form-gestores.component';
 import { ListaGestoresComponent } from './components/windows/gestores/lista-gestores/lista-gestores.component';
 import { RegistroComponent } from './components/windows/registro/registro.component';
+import { AddComponent } from './Irregularidad/add/add.component';
+import { DeleteComponent } from './Irregularidad/delete/delete.component';
+import { EditComponent } from './Irregularidad/edit/edit.component';
+import { ListarComponent } from './Irregularidad/listar/listar.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -56,6 +60,10 @@ registerLocaleData(localeEs, 'es');
     FormGestoresComponent,
     ListaGestoresComponent,
     RegistroComponent,
+    AddComponent,
+    DeleteComponent,
+    EditComponent,
+    ListarComponent,
   ],
   imports: [
     BrowserModule,

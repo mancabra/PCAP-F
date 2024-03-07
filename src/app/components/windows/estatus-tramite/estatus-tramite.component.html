@@ -1,6 +1,7 @@
+
 <div class="container mt-5 mb-5">
   <div class="encabezado text-center mb-5">
-    {{ prestador.nombre }} {{prestador.apellido}} / {{ prestador.tramites[0].tramite }}
+    <!--{{ prestador.nombre }} {{prestador.apellido}} / {{ prestador.tramites[0].nombre }}-->
   </div>
   <div class="progress">
     <div class="str-progress">{{ strProgreso }}</div> <i id="progress-icon" class="bi bi-clock-fill"></i>
@@ -17,7 +18,7 @@
         </div>
       </div>
       <div class="decripcionEtapa">
-        <b>{{ prestador.tramites[0].descripcion }}</b>
+       <!-- <b>{{ prestador.tramites[0].descripcion }}</b>-->
       </div>
     </div>
     <div class="derecha">
@@ -38,23 +39,27 @@
         <label>IRREGULARIDAD ACTUAL:</label>
       </div>
 
-      <div name="btnAgregarIrregularidad" class="contendedorBtn" style="display: none;">
-        <button class="btn btInfotecR" >AGREGAR IRREGULARIDAD</button>
+      <div name="btnAgregarIrregularidad" class="contendedorBtn" >
+        <button (click)="nuevo()" class="btn btInfotecR" >AGREGAR IRREGULARIDAD</button>
       </div>
-
-      <div class="irregularidad dimenciones">
-        <div class="card margenes irregularidadR">
-          <div style="display: flex;">
-            <div class="contenidoIrregularidad">
-              <div class="contenedorImagen">
-                <img class="imagenes" src="../assets/calendar-sad.png">
+      <div *ngFor="let irregularidad of listaIrregularidades">
+        <div class="irregularidad dimenciones">
+          <div class="card margenes irregularidadR">
+            <div style="display: flex;">
+              <div class="contenidoIrregularidad">
+                <div class="contenedorImagen">
+                  <img class="imagenes" src="../assets/calendar-sad.png">
+                </div>
+                <div class="nombreIrregularidad">
+                  {{ irregularidad.nombre }}
+                </div>
+                <!--<div>
+                  <button class="btn btInfotecVC">completar</button>
+                </div>-->
               </div>
-              <div class="nombreIrregularidad">
-                nombreIregularidad
+              <div class="bordeR">
+                &nbsp;
               </div>
-            </div>
-            <div class="bordeR">
-              &nbsp;
             </div>
           </div>
         </div>
@@ -62,11 +67,12 @@
 
       <div name="btnMarcarCompleta " class="contendedorBtn fondo">
         <button class="btn btInfotecVC">MARCAR COMO COMPLETA</button>
+        <button class="btn btInfotecVC">EDITAR IRREGULARIDAD</button>
       </div>
     </div>
     <div class="derecha">
       <div class="tituloIrregularidad">
-        <label>IRREGULARIDAD ACTUAL:</label>
+        <label>IRREGULARIDADES COMPLETADAS:</label>
       </div>
       <div class="contenedorCompletas">
         <div class="irregularidad dimenciones">
@@ -109,4 +115,5 @@
       </div>
     </div>
   </div>
+  
 </div>
