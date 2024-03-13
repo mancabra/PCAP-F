@@ -18,13 +18,13 @@ export class ProyectoService {
 
   // Consultar gestores
     public getGestores(): Observable<Gestor[]> {
-        return this._http.get<Gestor[]>(this.urlEndPoint + "/gestores")
+        return this._http.get<Gestor[]>(this.urlEndPoint + "/listaDeGestores")
         .pipe(catchError(this.handleError));
     }
 
   // Consultar proyectos
   public getProyectos(): Observable<Proyecto[]> {
-    return this._http.get<Proyecto[]>(this.urlEndPoint + "/proyectos")
+    return this._http.get<Proyecto[]>(this.urlEndPoint + "/listaDeProyectos")
       .pipe(catchError(this.handleError));
   }
 
@@ -36,19 +36,19 @@ export class ProyectoService {
 
   // Guardar proyecto
   public guardar(proyecto: ProyectoDto): Observable<ProyectoDto> {
-    return this._http.post<ProyectoDto>(this.urlEndPoint + "/proyecto", proyecto)
+    return this._http.post<ProyectoDto>(this.urlEndPoint + "/crearProyecto", proyecto)
       .pipe(catchError(this.handleError));
   }
 
   // Actualizar proyecto
   public actualizar(id: number, proyecto: ProyectoDto): Observable<ProyectoDto> {
-    return this._http.put<ProyectoDto>(this.urlEndPoint + "/proyecto/" + id, proyecto)
+    return this._http.put<ProyectoDto>(this.urlEndPoint + "/actualizarProyecto/" + id, proyecto)
       .pipe(catchError(this.handleError));
   }
 
   // Eliminar proyecto
   public eliminar(id: number): Observable<Proyecto> {
-    return this._http.delete<Proyecto>(this.urlEndPoint + "/proyecto/" + id)
+    return this._http.delete<Proyecto>(this.urlEndPoint + "/eliminarProyecto/" + id)
       .pipe(catchError(this.handleError));
   }
 

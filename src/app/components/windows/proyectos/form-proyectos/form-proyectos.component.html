@@ -8,11 +8,12 @@
             <input class="form-control form-control-md" type="text" id="nombre" name="nombre" [(ngModel)]="proyecto">
           </div>
           <div class="form-group mb-3">
-            <label class="mb-1 input-label" for="gestores">Gestor</label>
-            <select class="form-control form-control-md" id="gestores" name="gestor">
-              <option value="0" hidden disabled selected>Seleccione un gestor de la lista</option>
-              <option *ngFor="let g of gestores" [value]="g.nombre + g.apellido">{{ g.nombre + ' ' + g.apellido }}</option>
-            </select>
+            <label class="mb-1 input-label" for="representante">Representante</label>
+            <!--<select class="form-control form-control-md" id="gestores" name="gestor">-->
+              <!--<option value="0" hidden disabled selected>Nombre del representante</option>-->
+              <input class="form-control form-control-md" type="text" id="representante" name="representante" [(ngModel)]="representante">
+              <!--<option *ngFor="let g of gestores" [value]="g.nombre + g.apellido">{{ g.nombre + ' ' + g.apellido }}</option>-->
+            <!--</select>-->
           </div>
           <div class="form-group">
             <mat-form-field>

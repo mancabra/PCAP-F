@@ -17,7 +17,7 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
   idProyecto: number = 0;
   gestores: Gestor[] = [];
   proyecto: string = "";
-  emailRepresentante: string = "";
+  representante: string ="";
   fechaInicio: Date = new Date();
   fechaFin: Date = new Date();
   proyectoDto: ProyectoDto = new ProyectoDto();
@@ -29,6 +29,7 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
       this.proyecto = proyecto.nombre;
       this.fechaInicio = new Date(proyecto.fechaInicio);
       this.fechaFin = new Date(proyecto.fechaFin);
+      this.representante = proyecto.representante;
       this.proyectoSeleccionado = true;
       this.getGestor(proyecto.representante.nombre + "" + proyecto.representante.apellido);
     });
@@ -49,7 +50,7 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
 
     gestores.options[id + 1].selected = true;
   }
-  getEmailRepresentante(): void {
+  /*getEmailRepresentante(): void {
     const gestores = document.getElementById('gestores') as HTMLSelectElement;
     const gestorSeleccionado = gestores.value;
 
@@ -59,12 +60,12 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
     });
 
     this.emailRepresentante = gestor?.email || "";
-  }
+  }*/
 
   guardarProyecto(): void {
-    this.getEmailRepresentante();
+    //this.getEmailRepresentante();
     this.proyectoDto.nombre = this.proyecto;
-    this.proyectoDto.emailRepresentante = this.emailRepresentante;
+    this.proyectoDto.representante = this.representante;
 
     if (this.fechaInicio > this.fechaFin) {
       Swal.fire({
@@ -95,9 +96,9 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
   }
 
   actualizarProyecto(): void {
-    this.getEmailRepresentante();
+    //this.getEmailRepresentante();
     this.proyectoDto.nombre = this.proyecto;
-    this.proyectoDto.emailRepresentante = this.emailRepresentante;
+    this.proyectoDto.representante = this.representante;
 
     if (this.fechaInicio > this.fechaFin) {
       Swal.fire({
@@ -141,7 +142,7 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
     defaultOption.selected = true;
 
     this.proyecto = "";
-    this.emailRepresentante = "";
+    this.representante = "";
     this.fechaInicio = new Date();
     this.fechaFin = new Date();
   }
@@ -153,9 +154,9 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._proyectoService.getGestores().subscribe(gestores => {
+    /*this._proyectoService.getGestores().subscribe(gestores => {
       this.gestores = gestores;
-    });
+    });*/
   }
 
   ngOnDestroy(): void {

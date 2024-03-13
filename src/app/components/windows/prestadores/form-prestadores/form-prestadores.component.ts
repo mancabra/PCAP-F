@@ -133,13 +133,13 @@ export class FormPrestadoresComponent implements OnInit {
 
     setTimeout(() => {
       this.proyecto.nombre = this.proyectoAsignado.nombre;
-      this.proyecto.emailRepresentante = this.proyectoAsignado.representante.email;
+      this.proyecto.representante = this.proyectoAsignado.representante;
       this.proyecto.fechaInicio = this.proyectoAsignado.fechaInicio;
       this.proyecto.fechaFin = this.proyectoAsignado.fechaFin;
 
-      let emailsPrestadores = this.proyectoAsignado.prestadoresDeServicio.map(p => p.email);
-      emailsPrestadores.push(this.email);
-      this.proyecto.emailsPrestadores = emailsPrestadores;
+      //let emailsPrestadores = this.proyectoAsignado.prestadoresDeServicio.map(p => p.email);
+      //emailsPrestadores.push(this.email);
+      //this.proyecto.emailsPrestadores = emailsPrestadores;
       this._proyectoService.actualizar(this.proyectoAsignado.id, this.proyecto).subscribe();
     }, 100);
   }

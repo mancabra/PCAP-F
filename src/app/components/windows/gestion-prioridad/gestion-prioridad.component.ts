@@ -3,6 +3,7 @@ import {GestionService} from "../../../services/gestion.service";
 import { Router } from "@angular/router";
 import { OnInit } from "@angular/core";
 import {Prestador} from "../../../models/prestador";
+import { Tramite } from 'src/app/models/tramite';
 
 @Component({
   selector: 'app-gestion-prioridad',
@@ -15,11 +16,16 @@ export class GestionPrioridadComponent implements OnInit {
   prestadores: Prestador[] = [];
   busquedaPrestador: Prestador[] = [];
   busquedaTramite: Prestador[] = [];
+  tramites: Tramite[]=[];
+  filtroPrioridad:number = 0;
 
   constructor(private _gestionService: GestionService, private _router: Router) {
   }
 
   buscarPor() {
+    this._gestionService.getTramitesPrioridad(this.filtroPrioridad).subscribe(data=>{
+      this.tramites=data;
+    });
     this.busquedaPrestador = [];
     this.busquedaTramite = [];
 

@@ -54,7 +54,7 @@ export class ListaProyectosComponent implements OnInit {
             this.proyectos = proyectos;
           });
         });
-        Swal.fire('¡Gestor eliminado!', '', 'success').then();
+        Swal.fire('¡Proyecto eliminado!', '', 'success').then();
       }
     });
   }

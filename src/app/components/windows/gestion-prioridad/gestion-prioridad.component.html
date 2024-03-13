@@ -4,10 +4,11 @@
 <div class="card">
   <div class="card-body">
     <div class="d-flex justify-content-between align-items-middle">
-      <select id="dd-menu" class="dd-menu">
+      <select [(ngModel)]="filtroPrioridad" id="dd-menu" class="dd-menu">
         <option value="" disabled selected hidden>Buscar por</option>
-        <option class="dd-item" value="prestador">Prestador</option>
-        <option class="dd-item" value="tramite">Tramite</option>
+        <option class="dd-item" value="1">Alta</option>
+        <option class="dd-item" value="2">Media</option>
+        <option class="dd-item" value="3">Baja</option>
       </select>
       <button id="reset-filters" (click)="quitarFiltro()">QUITAR FILTRO</button>
       <div class="d-flex justify-content-end align-items-middle">
@@ -34,17 +35,13 @@
     </tr>
     </thead>
     <tbody class="table-body">
-    <tr *ngFor="let pres of prestadores |
-    paginate: { itemsPerPage: 5, currentPage: p, totalItems: prestadores.length }">
-      <td>{{ pres.id }}</td>
-      <td class="priority"
-        [ngStyle]="{'background-color': checkColorPrioridad(pres.tramites[0].prioridad)
-      , 'color': checkTextoPrioridad(pres.tramites[0].prioridad)}">
-        {{ checkPrioridad(pres.tramites[0].prioridad) }}
-      </td>
-      <td>{{ pres.tramites[0].nombre }}</td>
-      <td>{{ pres.tramites[0].fechaLimite | date }}</td>
-      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
+    <tr *ngFor="let tramite of tramites |
+    paginate: { itemsPerPage: 5, currentPage: p, totalItems: tramites.length }">
+      <td>{{ tramite.id }}</td>
+      <td>{{ tramite.prioridad.nombre }}</td>
+      <td>{{ tramite.nombre }}</td>
+      <td>{{ tramite.fechaLimite | date }}</td>
+      <td>{{ tramite.prestador.usuario.nombre }} {{ tramite.prestador.usuario.apellidoP }}</td>
       <td>
         <button class="btn action-btn">VER TRAMITE</button>
       </td>
@@ -64,17 +61,13 @@
     </tr>
     </thead>
     <tbody class="table-body">
-    <tr *ngFor="let pres of busquedaPrestador |
+    <tr *ngFor="let tramite of tramites |
     paginate: { itemsPerPage: 5, currentPage: p, totalItems: prestadores.length }">
-      <td>{{ pres.id }}</td>
-      <td class="priority"
-          [ngStyle]="{'background-color': checkColorPrioridad(pres.tramites[0].prioridad)
-      , 'color': checkTextoPrioridad(pres.tramites[0].prioridad)}">
-        {{ checkPrioridad(pres.tramites[0].prioridad) }}
-      </td>
-      <td>{{ pres.tramites[0].nombre }}</td>
-      <td>{{ pres.tramites[0].fechaLimite | date }}</td>
-      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
+      <td>{{ tramite.id }}</td>
+      <td>{{ tramite.prioridad.nombre }}</td>
+      <td>{{ tramite.nombre }}</td>
+      <td>{{ tramite.fechaLimite | date }}</td>
+      <td>{{ tramite.prestador.usuario.nombre }} {{ tramite.prestador.usuario.apellidoP }}</td>
       <td>
         <button class="btn action-btn">VER TRAMITE</button>
       </td>
@@ -94,17 +87,13 @@
     </tr>
     </thead>
     <tbody class="table-body">
-    <tr *ngFor="let pres of busquedaTramite |
+    <tr *ngFor="let tramite of tramites |
     paginate: { itemsPerPage: 5, currentPage: p, totalItems: prestadores.length }">
-      <td>{{ pres.id }}</td>
-      <td class="priority"
-          [ngStyle]="{'background-color': checkColorPrioridad(pres.tramites[0].prioridad)
-      , 'color': checkTextoPrioridad(pres.tramites[0].prioridad)}">
-        {{ checkPrioridad(pres.tramites[0].prioridad) }}
-      </td>
-      <td>{{ pres.tramites[0].nombre }}</td>
-      <td>{{ pres.tramites[0].fechaLimite | date }}</td>
-      <td>{{ pres.nombre }} {{ pres.apellido }}</td>
+      <td>{{ tramite.id }}</td>
+      <td>{{ tramite.prioridad.nombre }}</td>
+      <td>{{ tramite.nombre }}</td>
+      <td>{{ tramite.fechaLimite | date }}</td>
+      <td>{{ tramite.prestador.usuario.nombre }} {{ tramite.prestador.usuario.apellidoP }}</td>
       <td>
         <button class="btn action-btn">VER TRAMITE</button>
       </td>

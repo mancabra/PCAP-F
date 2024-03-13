@@ -1,9 +1,9 @@
 import {Prestador} from "../prestador";
 
 export class ProyectoDto {
-  emailRepresentante: string = "";
+  representante: string = "";
   nombre: string = "";
   fechaInicio: string = "";
   fechaFin: string = "";
-  emailsPrestadores: string[] = [];
+  //emailsPrestadores: string[] = [];
 }

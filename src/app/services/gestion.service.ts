@@ -29,6 +29,10 @@ export class GestionService {
     return this._http.get<Prestador>(this.urlEndPoint + "/prestadores/" + id);
   }
 
+  getTramitesPrioridad(id: number): Observable<any> {
+    return this._http.get<any>(this.urlEndPoint + "/obtenerTramitesPrioridad/" + id);
+  }
+
   setPrestadorID(id: number) {
     this.$idPrestador = id;
   }
