@@ -50,9 +50,7 @@ export class ListaProyectosComponent implements OnInit {
     }).then(result => {
       if (result.isConfirmed) {
         this._proyectoService.eliminar(id).subscribe(proyecto => {
-          this._proyectoService.getProyectos().subscribe(proyectos => {
-            this.proyectos = proyectos;
-          });
+          this.actualizarListaProyectos();
         });
         Swal.fire('¡Proyecto eliminado!', '', 'success').then();
       }
@@ -60,6 +58,10 @@ export class ListaProyectosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.actualizarListaProyectos();
+  }
+
+  actualizarListaProyectos(){
     this._proyectoService.getProyectos().subscribe(proyectos => {
       this.proyectos = proyectos;
     });

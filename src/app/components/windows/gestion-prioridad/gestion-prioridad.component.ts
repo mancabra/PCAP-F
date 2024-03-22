@@ -22,6 +22,11 @@ export class GestionPrioridadComponent implements OnInit {
   constructor(private _gestionService: GestionService, private _router: Router) {
   }
 
+  goToTramites(id: number) {
+    this._gestionService.setTramiteID(id);
+    this._router.navigate(['Principal/tramites/activos/proyecto/estatus']).then();
+  }
+
   buscarPor() {
     this._gestionService.getTramitesPrioridad(this.filtroPrioridad).subscribe(data=>{
       this.tramites=data;

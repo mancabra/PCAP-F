@@ -90,7 +90,7 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
     }).then();
 
     setTimeout(() => {
-      this.limpiarFormulario();
+      //this.limpiarFormulario();
       this.updateComponent();
     }, 100);
   }
@@ -124,13 +124,13 @@ export class FormProyectosComponent implements OnInit, OnDestroy {
       if (result.isConfirmed) {
         this._proyectoService.actualizar(this.idProyecto, this.proyectoDto).subscribe(result => {
           setTimeout(() => {
-            this.limpiarFormulario();
+            //this.limpiarFormulario();
             this.updateComponent();
           }, 100);
         });
         Swal.fire('¡Cambios guardados con éxito!', '', 'success').then();
       } else if (result.isDenied) {
-        this.limpiarFormulario();
+        //this.limpiarFormulario();
         this.updateComponent();
       }
     });

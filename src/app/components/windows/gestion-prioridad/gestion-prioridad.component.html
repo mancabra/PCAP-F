@@ -43,7 +43,7 @@
       <td>{{ tramite.fechaLimite | date }}</td>
       <td>{{ tramite.prestador.usuario.nombre }} {{ tramite.prestador.usuario.apellidoP }}</td>
       <td>
-        <button class="btn action-btn">VER TRAMITE</button>
+        <button class="btn action-btn" (click)="goToTramites(tramite.id)">VER TRAMITE</button>
       </td>
     </tr>
     </tbody>

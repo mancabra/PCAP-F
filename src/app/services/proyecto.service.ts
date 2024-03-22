@@ -47,10 +47,15 @@ export class ProyectoService {
   }
 
   // Eliminar proyecto
-  public eliminar(id: number): Observable<Proyecto> {
+  public eliminar(id:number){
+    return this._http.get<any>('http://localhost:8090/api/eliminarProyectoPorId/'+id)
+    .pipe(catchError(this.handleError));
+  }
+  /*public eliminar(id: number): Observable<Proyecto> {
     return this._http.delete<Proyecto>(this.urlEndPoint + "/eliminarProyecto/" + id)
       .pipe(catchError(this.handleError));
-  }
+  }*/
+
 
   // Seleccionar proyecto
   public seleccionar(proyecto: any): void {
