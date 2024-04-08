@@ -1,7 +1,9 @@
 export class Gestor {
-  id: number = 0;
-  nombre: string = "";
-  apellido: string = "";
-  email: string = "";
-  password: string = "";
+  id_gestor: number = 0;
+  nombre: string = '';
+  apellidoP: string = '';
+  apellidoM: string = '';
+  correo: string = '';
+  telefono: string = '';
+  apellido: string = '';
 }

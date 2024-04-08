@@ -1,22 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {ProyectoService} from "../../../../services/proyecto.service";
-import {Router} from "@angular/router";
-import {Prestador} from "../../../../models/prestador";
-import {PrestadorService} from "../../../../services/prestador.service";
-import Swal from "sweetalert2";
+import { Component, OnInit } from '@angular/core';
+
+import { Router } from '@angular/router';
+import { PrestadorModel } from 'src/app/models/prestador.model';
+import Swal from 'sweetalert2';
+import { PrestadorService } from '../../../../services/prestador.service';
+import { ProyectoService } from '../../../../services/proyecto.service';
 
 @Component({
   selector: 'app-lista-prestadores',
   templateUrl: './lista-prestadores.component.html',
-  styleUrls: ['./lista-prestadores.component.css']
+  styleUrls: ['./lista-prestadores.component.css'],
 })
 export class ListaPrestadoresComponent implements OnInit {
   p: number = 1;
-  prestadores: Map<Prestador, string> = new Map<Prestador, string>();
-  constructor(private _proyectoService: ProyectoService, private _prestadorService: PrestadorService, private _router: Router) {
-  }
+  prestadores: PrestadorModel[] = [];
+  constructor(
+    private _proyectoService: ProyectoService,
+    private _prestadorService: PrestadorService,
+    private _router: Router
+  ) {}
 
-  seleccionarPrestador(prestador: Prestador) {
+  seleccionarPrestador(prestador: PrestadorModel) {
     this._prestadorService.seleccionar(prestador);
   }
 
@@ -28,31 +32,35 @@ export class ListaPrestadoresComponent implements OnInit {
       showCancelButton: false,
       confirmButtonText: 'Eliminar',
       denyButtonText: 'Cancelar',
-    }).then(result => {
-      if (result.isConfirmed) {
-        this._prestadorService.eliminar(id).subscribe(proyecto => {
-          this._proyectoService.getProyectos().subscribe(proyectos => {
-            this.prestadores.clear();
-            proyectos.forEach(proyecto => {
-              proyecto.prestadoresDeServicio.forEach(prestador => {
-                this.prestadores.set(prestador, proyecto.nombre);
-              });
-            });
+    }).then(
+      (result) => {
+        if (result.isConfirmed) {
+          this._prestadorService.eliminar(id).subscribe((data) => {
+            Swal.fire('¡Prestador eliminado!', '', 'success').then();
+            setTimeout(() => {
+              this.updateComponent();
+            }, 100);
           });
-        });
-        Swal.fire('¡Prestador eliminado!', '', 'success').then();
-      }
+        }
+      },
+      (error) => console.log(error)
+    );
+  }
+
+  private obtenerPrestadores() {
+    this._prestadorService.getPrestadores().subscribe((data) => {
+      this.prestadores = data;
+      console.log(this.prestadores);
+    });
+  }
+
+  private updateComponent() {
+    this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this._router.navigate(['Principal/prestadores']).then();
     });
   }
 
   ngOnInit() {
-    this._proyectoService.getProyectos().subscribe(proyectos => {
-      proyectos.forEach(proyecto => {
-        proyecto.prestadoresDeServicio.forEach(prestador => {
-          this.prestadores.set(prestador, proyecto.nombre);
-        });
-      });
-    });
+    this.obtenerPrestadores();
   }
-
 }

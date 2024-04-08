@@ -1,6 +1,8 @@
 export class GestorDto {
-  nombre: string = "";
-  apellido: string = "";
-  email: string = "";
-  password: string = "";
+  nombre: string = '';
+  apellidoP: string = '';
+  apellidoM: string = '';
+  correo: string = '';
+  telefono: string = '';
+  contrasenha: string = '';
 }

@@ -1,17 +1,16 @@
-import { CanActivateFn, Router } from '@angular/router';
-import {inject } from '@angular/core';
-import { GeneralService } from './general.service';
+import { inject } from '@angular/core';
 
+import { CanActivateFn, Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
-  const general = inject(GeneralService);
+  const general = inject(AuthService);
   const router = inject(Router);
-  const bool = localStorage.getItem('logged')
-  
+  const bool = localStorage.getItem('logged');
 
-  if(bool != "true"){
-    router.navigate(["start"]);
-    return false;
+  if (general.usuarioLogeado() && general.getRole() == 'GESTOR') {
+    return true;
   }
-  return true;
+  router.navigate(['start']);
+  return false;
 };
