@@ -1,12 +1,17 @@
 <div class="row d-flex justify-content-center mt-2">
   <div class="col">
     <div class="card">
-      <div class="d-flex justify-content-end align-items-middle search-container">
-        <div class="search">
-          <i id="input-icon" class="bi bi-search"></i>
-          <input type="text" placeholder="PRESTADOR" class="form-group input-field">
+      <div class="d-flex justify-content-around align-items-center search-container">
+        <div>
+          <button class="btn save-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar prestador</button>
         </div>
-        <button id="search-btn" class="btn">BUSCAR</button>
+        <div class=" d-flex">
+          <div class="search">
+            <i id="input-icon" class="bi bi-search"></i>
+            <input type="text" placeholder="PRESTADOR" class="form-group input-field">
+          </div>
+          <button id="search-btn" class="btn">BUSCAR</button>
+        </div>
       </div>
     </div>
     <div class="table-responsive">
@@ -20,7 +25,7 @@
             <th scope="col">Telefono</th>
             <th scope="col">Proyecto</th>
             <th scope="col"></th>
-            <th scope="col"></th>
+            <!-- <th scope="col"></th> -->
           </tr>
         </thead>
         <tbody class="table-body">
@@ -33,17 +38,35 @@
             <td>{{ pres.proyectoDTO.nombre }}</td>
             <td>
               <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarPrestador(pres)">
-                <i class="bi bi-check-circle-fill"></i>
+                <i class="bi bi-check-circle-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
               </button>
             </td>
-            <td>
+            <!--  <td>
               <button class="btn del-btn" title="Eliminar" (click)="eliminarPrestador(pres.id_prestador)">
                 <i class="bi bi-trash3-fill"></i>
               </button>
-            </td>
+            </td> -->
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar prestador</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-form-prestadores></app-form-prestadores>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>

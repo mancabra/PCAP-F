@@ -35,6 +35,10 @@ tr:hover {
   background-color: #e7e7e7;
 }
 
+#email {
+  text-transform: none;
+}
+
 .sel-btn {
   height: 3rem;
   width: 3rem;
@@ -74,7 +78,7 @@ tr:hover {
 .card {
   display: flex;
   justify-content: center;
-
+  height: 3rem;
   background-color: #10312b;
   border: 2px solid rgb(147, 46, 66);
   border-bottom: none;
@@ -125,22 +129,4 @@ tr:hover {
 
 #search-btn:active {
   background-color: #9b7845;
-}
-
-.save-btn {
-  background-color: #9b7845;
-  color: #f7f7f7;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
-}
-
-.save-btn:hover {
-  background-color: #ddc9a3;
-  color: #10312b;
-}
-
-.save-btn:active {
-  background-color: #bc955c;
 }

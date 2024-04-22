@@ -1,0 +1,33 @@
+.active {
+  background-color: #691c32;
+  color: #fff;
+  border: none;
+}
+
+.list-group-item-action:hover {
+  background-color: #691c32;
+  color: #fff;
+  border: none;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.menu {
+  height: auto;
+  max-height: 8rem;
+  border: none;
+}
+
+.btn {
+  background-color: #691c32;
+  color: #fff;
+  width: 100%;
+}
+
+.btn:hover {
+  border-color: #9f2241;
+  background-color: #9f2241;
+  color: #ffffff;
+}

@@ -1,10 +1,9 @@
 table {
   border: 2px solid rgb(147, 46, 66);
-  border-radius: 0 0 5px 5px ;
+  border-radius: 0 0 5px 5px;
   border-collapse: separate;
   border-spacing: 0;
 }
-
 
 table th:last-child {
   border-left: none;
@@ -15,9 +14,9 @@ table th:nth-child(6) {
 }
 
 th {
-  background-color: #10312B;
-  color: #F7F7F7;
-  border: 2px solid #F7F7F7;
+  background-color: #10312b;
+  color: #f7f7f7;
+  border: 2px solid #f7f7f7;
   border-bottom: 0;
   font-size: 0.75rem;
   font-weight: bold;
@@ -25,15 +24,15 @@ th {
 }
 
 tbody {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #BC955C;
+  color: #bc955c;
 }
 
 tr:hover {
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
 }
 
 #email {
@@ -43,26 +42,26 @@ tr:hover {
 .sel-btn {
   height: 3rem;
   width: 3rem;
-  background-color: #BC955C;
-  color: #F7F7F7;
+  background-color: #bc955c;
+  color: #f7f7f7;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 1.5rem;
 }
 
 .sel-btn:hover {
-  background-color: #DDC9A3;
+  background-color: #ddc9a3;
 }
 
 .sel-btn:active {
-  background-color: #9B7845;
+  background-color: #9b7845;
 }
 
 .del-btn {
   height: 3rem;
   width: 3rem;
   background-color: rgb(97, 34, 50);
-  color: #F7F7F7;
+  color: #f7f7f7;
   font-size: 1rem;
   font-weight: bold;
   border-radius: 1.5rem;
@@ -79,8 +78,7 @@ tr:hover {
 .card {
   display: flex;
   justify-content: center;
-  height: 3rem;
-  background-color: #10312B;
+  background-color: #10312b;
   border: 2px solid rgb(147, 46, 66);
   border-bottom: none;
   border-bottom-right-radius: 0;
@@ -99,7 +97,7 @@ tr:hover {
   width: 30vw;
   height: 2rem;
   border-radius: 1rem 0 0 1rem;
-  border: 1px solid #F7F7F7;
+  border: 1px solid #f7f7f7;
   border-right: none;
   padding-left: 30px;
   text-align: center;
@@ -115,19 +113,37 @@ tr:hover {
 #search-btn {
   width: 4rem;
   height: 2rem;
-  background-color: #BC955C;
-  color: #F7F7F7;
+  background-color: #bc955c;
+  color: #f7f7f7;
   font-size: 0.6rem;
   font-weight: bold;
   border-radius: 0 1rem 1rem 0;
-  border: 1px solid #F7F7F7;
+  border: 1px solid #f7f7f7;
   border-left: none;
 }
 
 #search-btn:hover {
-  background-color: #DDC9A3;
+  background-color: #ddc9a3;
 }
 
 #search-btn:active {
-  background-color: #9B7845;
+  background-color: #9b7845;
+}
+
+.save-btn {
+  background-color: #9b7845;
+  color: #f7f7f7;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+}
+
+.save-btn:hover {
+  background-color: #ddc9a3;
+  color: #10312b;
+}
+
+.save-btn:active {
+  background-color: #bc955c;
 }

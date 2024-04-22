@@ -1,71 +1,97 @@
 <div class="row d-flex justify-content-center mt-2">
   <div class="col">
     <div class="card">
-      <div class="d-flex justify-content-end align-items-middle search-container">
-        <div class="search">
-          <i id="input-icon" class="bi bi-search"></i>
-          <input type="text" placeholder="PROYECTO" class="form-group input-field" [(ngModel)]="nombreProyecto">
+      <div class="d-flex justify-content-around align-items-center search-container">
+        <div>
+          <button class="btn save-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar proyecto</button>
         </div>
-        <button id="search-btn" class="btn" (click)="buscarProyecto()">BUSCAR</button>
+        <div class=" d-flex">
+          <div class="search">
+            <i id="input-icon" class="bi bi-search"></i>
+            <input type="text" placeholder="PROYECTO" class="form-group input-field" [(ngModel)]="nombreProyecto">
+          </div>
+          <button id="search-btn" class="btn" (click)="buscarProyecto()">BUSCAR</button>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-borderless text-center align-middle" *ngIf="!proyectoEncontrado">
+          <thead class="table-header">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Proyecto</th>
+              <th scope="col">Inicio</th>
+              <th scope="col">Fin</th>
+              <th scope="col">Representante</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <tr *ngFor="let p of proyectos">
+              <td>{{ p.id }}</td>
+              <td>{{ p.nombre }}</td>
+              <td>{{ p.fechaInicio | date: "dd-MM-yy" }}</td>
+              <td>{{ p.fechaFin | date: "dd-MM-yy" }}</td>
+              <td>{{ p.representante }}</td>
+              <td>
+                <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarProyecto(p)" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"><i class="bi bi-check-circle-fill"></i></button>
+              </td>
+              <td>
+                <button class="btn del-btn" title="Eliminar" (click)="eliminarProyecto(p.id)"><i
+                    class="bi bi-trash3-fill"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table table-borderless text-center align-middle" *ngIf="proyectoEncontrado">
+          <thead class="table-header">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Proyecto</th>
+              <th scope="col">Inicio</th>
+              <th scope="col">Fin</th>
+              <th scope="col">Representante</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <tr>
+              <td>{{ proyecto.id }}</td>
+              <td>{{ proyecto.nombre }}</td>
+              <td>{{ proyecto.fechaInicio | date }}</td>
+              <td>{{ proyecto.fechaFin | date }}</td>
+              <td>{{ proyecto.representante }}</td>
+              <td>
+                <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarProyecto(proyecto)"><i
+                    class="bi bi-check-circle-fill"></i></button>
+              </td>
+              <td>
+                <button class="btn del-btn" title="Eliminar" (click)="eliminarProyecto(proyecto.id)"><i
+                    class="bi bi-trash3-fill"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="table-responsive">
-      <table class="table table-borderless text-center align-middle" *ngIf="!proyectoEncontrado">
-        <thead class="table-header">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Proyecto</th>
-          <th scope="col">Inicio</th>
-          <th scope="col">Fin</th>
-          <th scope="col">Representante</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody class="table-body">
-        <tr *ngFor="let p of proyectos">
-          <td>{{ p.id }}</td>
-          <td>{{ p.nombre }}</td>
-          <td>{{ p.fechaInicio | date: "dd-MM-yy" }}</td>
-          <td>{{ p.fechaFin | date: "dd-MM-yy" }}</td>
-          <td>{{ p.representante }}</td>
-          <td>
-            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarProyecto(p)"><i class="bi bi-check-circle-fill"></i></button>
-          </td>
-          <td>
-            <button class="btn del-btn" title="Eliminar" (click)="eliminarProyecto(p.id)"><i class="bi bi-trash3-fill"></i></button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <table class="table table-borderless text-center align-middle" *ngIf="proyectoEncontrado">
-        <thead class="table-header">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Proyecto</th>
-          <th scope="col">Inicio</th>
-          <th scope="col">Fin</th>
-          <th scope="col">Representante</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-        </thead>
-        <tbody class="table-body">
-        <tr>
-          <td>{{ proyecto.id }}</td>
-          <td>{{ proyecto.nombre }}</td>
-          <td>{{ proyecto.fechaInicio | date }}</td>
-          <td>{{ proyecto.fechaFin | date }}</td>
-          <td>{{ proyecto.representante }}</td>
-          <td>
-            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarProyecto(proyecto)"><i class="bi bi-check-circle-fill"></i></button>
-          </td>
-          <td>
-            <button class="btn del-btn" title="Eliminar" (click)="eliminarProyecto(proyecto.id)"><i class="bi bi-trash3-fill"></i></button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar proyecto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-form-proyectos></app-form-proyectos>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
-</div>

@@ -37,6 +37,10 @@ import { ProyectosComponent } from './components/windows/proyectos/proyectos.com
 import { RegistroComponent } from './components/windows/registro/registro.component';
 import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
 import { authInterceptorProviders } from './interceptor/auth.interceptor';
+import { TramiteComponent } from './components/windows/tramite/tramite.component';
+import { FormTramiteComponent } from './components/windows/tramite/form-tramite/form-tramite.component';
+import { ListTramiteComponent } from './components/windows/tramite/list-tramite/list-tramite.component';
+import { AdministradorComponent } from './components/windows/administrador/administrador.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -66,6 +70,10 @@ registerLocaleData(localeEs, 'es');
     DeleteComponent,
     EditComponent,
     ListarComponent,
+    TramiteComponent,
+    FormTramiteComponent,
+    ListTramiteComponent,
+    AdministradorComponent,
   ],
   imports: [
     BrowserModule,

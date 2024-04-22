@@ -1,0 +1,49 @@
+<div class="row d-flex justify-content-center mt-2">
+    <div class="col">
+        <div class="card">
+            <div class="d-flex justify-content-end align-items-middle search-container">
+                <div class="search">
+                    <i id="input-icon" class="bi bi-search"></i>
+                    <input type="text" placeholder="Tramite" class="form-group input-field">
+                </div>
+                <button id="search-btn" class="btn">BUSCAR</button>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-borderless text-center align-middle">
+                <thead class="table-header">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Prioridad</th>
+                        <th scope="col">fecha limite</th>
+                        <th scope="col">Prestador</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <tr *ngFor="let tramite of tramites">
+                        <td>{{tramite.id}}</td>
+                        <td>{{tramite.nombre}}</td>
+                        <td>{{tramite.descripcion}}</td>
+                        <td>{{tramite.prioridad.nombre}}</td>
+                        <td>{{tramite.fechaLimite}}</td>
+                        <td>{{tramite.prestadorDTO.nombre}}</td>
+                        <td>
+                            <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarTramite(tramite)">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn del-btn" title="Eliminar" (click)="eliminarTramite(tramite.id)">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
