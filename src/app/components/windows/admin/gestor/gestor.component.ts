@@ -1,16 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Gestor } from 'src/app/models/gestor';
+import { GestorService } from 'src/app/services/gestor.service';
+import { ProyectoService } from 'src/app/services/proyecto.service';
 import Swal from 'sweetalert2';
-import { Gestor } from '../../../../models/gestor';
-import { GestorService } from '../../../../services/gestor.service';
-import { ProyectoService } from '../../../../services/proyecto.service';
 
 @Component({
-  selector: 'app-lista-gestores',
-  templateUrl: './lista-gestores.component.html',
-  styleUrls: ['./lista-gestores.component.css'],
+  selector: 'app-gestor',
+  templateUrl: './gestor.component.html',
+  styleUrls: ['./gestor.component.css'],
 })
-export class ListaGestoresComponent implements OnInit {
+export class GestorComponent {
   p: number = 1;
   gestores: Gestor[] = [];
   constructor(

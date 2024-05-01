@@ -1,54 +1,48 @@
-<div class="container mt-5 mb-4">
-  <h4 class="text-center mv-title mb-2">ACTIVIDADES Y EVENTOS PROXIMOS EN INFOTEC</h4>
-  <div id="carousel" class="container carousel slide" data-bs-ride="carousel" data-interval="6000">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-    </div>
-    <div class="carousel-inner" role="listbox">
-      <div class="carousel-item active">
-        <img alt="SomosInfotec" src="https://www.infotec.mx/work/models/Infotec/2023/Somos_INFOTEC_1_.png" class="w-100 carousel-img">
-      </div>
-      <div class="carousel-item">
-        <img alt="ComunidadAbierta" src="https://www.infotec.mx/work/models/Infotec/2023/Comunidad_Abierta_2_.png" class="w-100 carousel-img">
-      </div>
-      <div class="carousel-item">
-        <img alt="Academia" src="https://www.infotec.mx/work/models/Infotec/2023/Academia_3_.png" class="w-100 carousel-img">
-      </div>
-      <div class="carousel-item">
-        <img alt="Investigacion" src="https://www.infotec.mx/work/models/Infotec/2023/Investigacion_4_.png" class="w-100 carousel-img">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <div class="container">
-    <h6 class="mv-opt-title mt-5">INFORMACION SOBRE LA PLATAFORMA</h6>
-  </div>
-  <div class="container line-wrapper">
-    <hr class="line mt-1">
-  </div>
-  <div class="mv-option-group">
-    <a href="#" class="mv-option mv-opt-text">
-      <div class="icon"><i class="bi bi-folder"></i></div>
-      <div class="inner-text">DOCUMENTACION DEL PROYECTO</div>
-    </a>
-    <a href="#" class="mv-option mv-opt-text">
-      <div class="icon"><i class="bi bi-file-earmark-person"></i></div>
-      <div class="inner-text">MANUAL DE USUARIO</div>
-    </a>
-    <a href="#" class="mv-option mv-opt-text">
-      <div class="icon"><i class="bi bi-people-fill"></i></div>
-      <div class="inner-text">COLABORADORES DE PROYECTO</div>
-    </a>
-  </div>
+<div class="container mt-5">
+  <button type="button" class="btn btn-primary mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar
+    Evento</button>
+  <full-calendar [events]="events" [options]="calendarOptions"></full-calendar>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="title" name="title" aria-describedby="title"
+              [(ngModel)]="event.title">
+          </div>
+          <div class="mb-3">
+            <label for="start" class="form-label">Inicio</label>
+            <input type="date" class="form-control" id="start" name="start" [(ngModel)]="event.start">
+          </div>
+          <div class="mb-3">
+            <label for="end" class="form-label">Fin</label>
+            <input type="date" class="form-control" id="end" name="end" [(ngModel)]="event.end">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="description" name="description" aria-describedby="title"
+              [(ngModel)]="event.description">
+          </div>
+          <!--  <div class="mb-3">
+                        <label for="url" class="form-label">URL</label>
+                        <input type="text" class="form-control" id="url" name="url" aria-describedby="url"
+                            [(ngModel)]="event.url">
+                    </div> -->
+        </form>
+      </div>
+      <div class=" modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="guardarEvento()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

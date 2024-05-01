@@ -10,6 +10,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FullCalendarModule } from '@fullcalendar/angular';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AddComponent } from './Irregularidad/add/add.component';
 import { DeleteComponent } from './Irregularidad/delete/delete.component';
@@ -24,9 +25,6 @@ import { GenerarComponent } from './components/windows/generar/generar.component
 import { GestionPrestadoresComponent } from './components/windows/gestion-prestadores/gestion-prestadores.component';
 import { GestionPrioridadComponent } from './components/windows/gestion-prioridad/gestion-prioridad.component';
 import { GestionTramitesComponent } from './components/windows/gestion-tramites/gestion-tramites.component';
-import { FormGestoresComponent } from './components/windows/gestores/form-gestores/form-gestores.component';
-import { GestoresComponent } from './components/windows/gestores/gestores.component';
-import { ListaGestoresComponent } from './components/windows/gestores/lista-gestores/lista-gestores.component';
 import { FormPrestadoresComponent } from './components/windows/prestadores/form-prestadores/form-prestadores.component';
 import { ListaPrestadoresComponent } from './components/windows/prestadores/lista-prestadores/lista-prestadores.component';
 import { PrestadoresComponent } from './components/windows/prestadores/prestadores.component';
@@ -35,12 +33,11 @@ import { FormProyectosComponent } from './components/windows/proyectos/form-proy
 import { ListaProyectosComponent } from './components/windows/proyectos/lista-proyectos/lista-proyectos.component';
 import { ProyectosComponent } from './components/windows/proyectos/proyectos.component';
 import { RegistroComponent } from './components/windows/registro/registro.component';
-import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
-import { authInterceptorProviders } from './interceptor/auth.interceptor';
-import { TramiteComponent } from './components/windows/tramite/tramite.component';
 import { FormTramiteComponent } from './components/windows/tramite/form-tramite/form-tramite.component';
 import { ListTramiteComponent } from './components/windows/tramite/list-tramite/list-tramite.component';
-import { AdministradorComponent } from './components/windows/administrador/administrador.component';
+import { TramiteComponent } from './components/windows/tramite/tramite.component';
+import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
+import { authInterceptorProviders } from './interceptor/auth.interceptor';
 
 registerLocaleData(localeEs, 'es');
 
@@ -62,9 +59,6 @@ registerLocaleData(localeEs, 'es');
     PrestadoresComponent,
     FormPrestadoresComponent,
     ListaPrestadoresComponent,
-    GestoresComponent,
-    FormGestoresComponent,
-    ListaGestoresComponent,
     RegistroComponent,
     AddComponent,
     DeleteComponent,
@@ -73,7 +67,6 @@ registerLocaleData(localeEs, 'es');
     TramiteComponent,
     FormTramiteComponent,
     ListTramiteComponent,
-    AdministradorComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +78,7 @@ registerLocaleData(localeEs, 'es');
     MatNativeDateModule,
     BrowserAnimationsModule,
     FormsModule,
+    FullCalendarModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }, authInterceptorProviders],
   bootstrap: [AppComponent],

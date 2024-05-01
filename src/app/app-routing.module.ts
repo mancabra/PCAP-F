@@ -6,19 +6,18 @@ import { EditComponent } from './Irregularidad/edit/edit.component';
 import { ListarComponent } from './Irregularidad/listar/listar.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AdministradorComponent } from './components/windows/administrador/administrador.component';
 import { EstatusTramiteComponent } from './components/windows/estatus-tramite/estatus-tramite.component';
 import { GenerarComponent } from './components/windows/generar/generar.component';
 import { GestionPrestadoresComponent } from './components/windows/gestion-prestadores/gestion-prestadores.component';
 import { GestionPrioridadComponent } from './components/windows/gestion-prioridad/gestion-prioridad.component';
 import { GestionTramitesComponent } from './components/windows/gestion-tramites/gestion-tramites.component';
-import { GestoresComponent } from './components/windows/gestores/gestores.component';
 import { PrestadoresComponent } from './components/windows/prestadores/prestadores.component';
 import { PrincipalComponent } from './components/windows/principal/principal.component';
 import { ProyectosComponent } from './components/windows/proyectos/proyectos.component';
 import { RegistroComponent } from './components/windows/registro/registro.component';
 import { TramiteComponent } from './components/windows/tramite/tramite.component';
 import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
+import { adminGuard } from './services/admin.guard';
 import { authGuard } from './services/auth.guard';
 
 const routes: Routes = [
@@ -39,7 +38,6 @@ const routes: Routes = [
       { path: 'tramites', component: TramitesActivosComponent },
       { path: 'proyectos', component: ProyectosComponent },
       { path: 'prestadores', component: PrestadoresComponent },
-      { path: 'gestores', component: GestoresComponent },
       { path: 'calendario', component: GenerarComponent },
       { path: 'gestion/proyectos', component: GestionTramitesComponent },
       { path: 'gestion/prestadores', component: GestionPrestadoresComponent },
@@ -52,7 +50,14 @@ const routes: Routes = [
       { path: 'tramites/gestion', component: TramiteComponent },
     ],
   },
-  { path: 'administrador', component: AdministradorComponent },
+  {
+    path: 'administrador',
+    loadChildren: () =>
+      import('./components/windows/admin/admin.module').then(
+        (m) => m.AdminModule
+      ),
+    canActivate: [adminGuard],
+  },
   { path: '**', redirectTo: 'Principal/avisos', pathMatch: 'full' },
 ];
 

@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { GestorDto } from 'src/app/models/dto/gestor-dto';
+import { ProyectoDto } from 'src/app/models/dto/proyecto-dto';
+import { Gestor } from 'src/app/models/gestor';
+import { Proyecto } from 'src/app/models/proyecto';
+import { GestorService } from 'src/app/services/gestor.service';
+import { ProyectoService } from 'src/app/services/proyecto.service';
 import Swal from 'sweetalert2';
-import { GestorDto } from '../../../../models/dto/gestor-dto';
-import { ProyectoDto } from '../../../../models/dto/proyecto-dto';
-import { Gestor } from '../../../../models/gestor';
-import { Proyecto } from '../../../../models/proyecto';
-import { GestorService } from '../../../../services/gestor.service';
-import { ProyectoService } from '../../../../services/proyecto.service';
 
 @Component({
-  selector: 'app-form-gestores',
-  templateUrl: './form-gestores.component.html',
-  styleUrls: ['./form-gestores.component.css'],
+  selector: 'app-form-gestor',
+  templateUrl: './form-gestor.component.html',
+  styleUrls: ['./form-gestor.component.css'],
 })
-export class FormGestoresComponent implements OnInit {
+export class FormGestorComponent implements OnInit {
   proyectos: Proyecto[] = [];
   gestores: Gestor[] = [];
 
@@ -124,7 +124,7 @@ export class FormGestoresComponent implements OnInit {
 
   updateComponent() {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this._router.navigate(['Principal/gestores']).then();
+      this._router.navigate(['administrador']).then();
     });
   }
 

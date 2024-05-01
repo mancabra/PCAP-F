@@ -114,6 +114,10 @@ export class LoginComponent implements AfterViewInit {
             this.router.navigate(['Principal/avisos']);
             this._authService.loginStatus.next(true);
           }
+          if (this._authService.getRole() == 'ADMINISTRADOR') {
+            this.router.navigate(['administrador']);
+            this._authService.loginStatus.next(true);
+          }
         });
       },
       (error) => (this.loginValid = false)

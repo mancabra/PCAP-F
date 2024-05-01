@@ -1,0 +1,54 @@
+<div class="row d-flex justify-content-center mt-2">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="nombre">Nombre</label>
+                        <input class="form-control form-control-md" type="text" id="nombre" name="nombre"
+                            [(ngModel)]="gestor.nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="apellidoP">Apellido Paterno</label>
+                        <input class="form-control form-control-md" type="text" id="apellidoP" name="apellidoP"
+                            [(ngModel)]="gestor.apellidoP">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="apellidoM">Apellido Materno</label>
+                        <input class="form-control form-control-md" type="text" id="apellidoM" name="apellidoM"
+                            [(ngModel)]="gestor.apellidoM">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="correo">Email</label>
+                        <input class="form-control form-control-md" type="text" id="correo" name="correo"
+                            [(ngModel)]="gestor.correo">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="telefono">Telefono</label>
+                        <input class="form-control form-control-md" type="text" id="telefono" name="telefono"
+                            [(ngModel)]="gestor.telefono">
+                    </div>
+                    <div class="form-group mb-3" *ngIf="!gestorSeleccionado">
+                        <label class="mb-1 input-label" for="contrasenha">Contraseña</label>
+                        <input class="form-control form-control-md" type="password" id="contrasenha" name="contrasenha"
+                            [(ngModel)]="gestor.contrasenha">
+                    </div>
+                    <div class="d-flex justify-content-end align-items-middle">
+                        <button *ngIf="!gestorSeleccionado" class="btn btn-primary save-btn" type="submit"
+                            (click)="guardarGestor()">
+                            <div>Guardar</div>
+                            <i class="bi bi-floppy2-fill"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-middle">
+                        <button *ngIf="gestorSeleccionado" class="btn btn-primary update-btn" type="submit"
+                            (click)="actualizarGestor()">
+                            <div>Actualizar</div>
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

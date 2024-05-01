@@ -43,7 +43,7 @@ export class AuthService {
 
   getRole() {
     let user = this.getUsuario();
-    return user.perfil;
+    return user.role;
   }
 
   usuarioLogeado(): boolean {

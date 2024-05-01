@@ -1,0 +1,68 @@
+.card {
+  border: 2px solid rgb(147, 46, 66);
+}
+
+.input-label {
+  color: #bc955c;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#nombre,
+#apellido {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+#email {
+  font-size: 0.75rem;
+}
+
+#proyecto {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+mat-label {
+  color: #bc955c;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.save-btn {
+  height: 3rem;
+  width: 8rem;
+  background-color: #10312b;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+}
+
+.save-btn:hover {
+  background-color: #235b4e;
+}
+
+.save-btn:active {
+  background-color: #0c2722;
+}
+
+.update-btn {
+  height: 3rem;
+  width: 8rem;
+  background-color: rgb(97, 34, 50);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+}
+
+.update-btn:hover {
+  background-color: rgb(147, 46, 66);
+}
+
+.update-btn:active {
+  background-color: #491721;
+}

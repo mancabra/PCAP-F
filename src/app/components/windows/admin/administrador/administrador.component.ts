@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./administrador.component.css'],
 })
 export class AdministradorComponent {
-  activeButton: string = 'Productos';
-  show: string = 'Productos';
+  activeButton: string = 'Gestores';
+  show: string = 'Gestores';
   listOrdenes!: Array<any>;
   status!: string;
   ordenDetail!: any;

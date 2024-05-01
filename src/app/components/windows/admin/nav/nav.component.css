@@ -1,0 +1,40 @@
+.coloresInfotec {
+  color: rgb(97, 34, 50);
+  color: rgb(147, 46, 66);
+  color: rgb(186, 116, 137);
+  color: rgb(24, 48, 43);
+  color: rgb(50, 90, 79);
+  color: rgb(151, 121, 77);
+  color: rgb(182, 150, 100);
+  color: rgb(218, 202, 168);
+}
+
+.navbar {
+  background-color: rgb(97, 34, 50);
+}
+
+.nav-link {
+  color: rgb(255, 255, 255);
+  margin: 2px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  color: rgb(24, 48, 43);
+  background-color: rgb(182, 150, 100);
+}
+
+.nav-link:active {
+  background-color: rgb(211, 192, 162);
+}
+
+.texto {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.navbar-brand {
+  color: rgb(218, 202, 168);
+  font-weight: bold;
+}

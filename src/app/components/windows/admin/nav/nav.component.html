@@ -1,0 +1,15 @@
+<nav class="navbar">
+    <div class="container-fluid justify-content-between">
+        <a class="navbar-brand">Panel de Administrador</a>
+        <div class="d-flex">
+            <div class="align-items-center d-flex justify-content-start">
+                <a class="texto">Hola, {{user.nombre}} {{user.apellidoP}} <i class="bi bi-person-circle ms-2"></i></a>
+            </div>
+
+            <div class="ms-3">
+                <a class="nav-link active" aria-current="page" href="start" (click)="cerrarSesion()"><i
+                        class="bi bi-box-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>

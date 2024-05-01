@@ -1,0 +1,59 @@
+<div class="row d-flex justify-content-center mt-2">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="nombre">Nombre</label>
+                        <input class="form-control form-control-md" type="text" id="nombre" name="nombre"
+                            [(ngModel)]="prestador.nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="apellidoP">Apellido Paterno</label>
+                        <input class="form-control form-control-md" type="text" id="apellidoP" name="apellidoP"
+                            [(ngModel)]="prestador.apellidoP">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="apellidoM">Apellido Materno</label>
+                        <input class="form-control form-control-md" type="text" id="apellidoM" name="apellidoM"
+                            [(ngModel)]="prestador.apellidoM">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="correo">Email</label>
+                        <input class="form-control form-control-md" type="text" id="correo" name="correo"
+                            [(ngModel)]="prestador.correo">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="telefono">Telefono</label>
+                        <input class="form-control form-control-md" type="number" id="telefono" name="telefono"
+                            [(ngModel)]="prestador.telefono">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="proyecto">Proyecto</label>
+                        <select class="form-control form-control-md" id="proyecto" name="proyecto"
+                            [(ngModel)]="prestador.id_proyecto">
+                            <option value="0" hidden disabled selected>Seleccione un proyecto de la lista</option>
+                            <option *ngFor="let p of proyectos" [value]="p.id"
+                                [selected]="p.id === prestador.id_proyecto">{{
+                                p.nombre }}</option>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-middle">
+                        <button *ngIf="!prestadorSeleccionado" class="btn btn-primary save-btn" type="submit"
+                            (click)="guardarPrestador()">
+                            <div>Guardar</div>
+                            <i class="bi bi-floppy2-fill"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-middle">
+                        <button *ngIf="prestadorSeleccionado" class="btn btn-primary update-btn" type="submit"
+                            (click)="actualizarPrestador()">
+                            <div>Actualizar</div>
+                            <i class="bi bi-arrow-clockwise"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
