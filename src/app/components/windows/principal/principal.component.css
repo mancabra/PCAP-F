@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.mv-title, .mv-opt-title {
-  color: #BC955C;
+.mv-title,
+.mv-opt-title {
+  color: #bc955c;
   font-weight: bold;
 }
 
@@ -14,7 +15,7 @@
 }
 
 .line {
-  background-color: #235B4E;
+  background-color: #235b4e;
   width: 100%;
   height: 5px;
   border: 0;
@@ -45,18 +46,18 @@
   justify-content: space-evenly;
   width: 30%;
   height: auto;
-  border: 1px solid #B2B2B2;
+  border: 1px solid #b2b2b2;
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
 }
 
 .mv-option:hover {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
 }
 
 .mv-opt-text {
-  color: #B2B2B2;
+  color: #b2b2b2;
   text-decoration: none;
   word-break: break-word;
   align-items: center;
@@ -70,4 +71,9 @@
 .inner-text {
   margin: 0;
   font-size: 0.75rem;
+}
+
+.btn-primary {
+  background-color: rgb(24, 48, 43);
+  border-color: rgb(24, 48, 43);
 }

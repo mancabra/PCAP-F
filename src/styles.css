@@ -1,4 +1,55 @@
 @import "~bootstrap-icons/font/bootstrap-icons";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.coloresInfotec {
+  color: rgb(97, 34, 50);
+  color: rgb(147, 46, 66);
+  color: rgb(186, 116, 137);
+  color: rgb(24, 48, 43);
+  color: rgb(50, 90, 79);
+  color: rgb(151, 121, 77);
+  color: rgb(182, 150, 100);
+  color: rgb(218, 202, 168);
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background-color: rgb(24, 48, 43) !important;
+  border-color: rgb(24, 48, 43) !important;
+}
+
+.fc .fc-button-primary {
+  color: rgb(255, 255, 255) !important;
+  background-color: #235b4e !important;
+  border-color: #235b4e !important;
+}
+
+.fc .fc-col-header-cell-cushion,
+.fc .fc-daygrid-day-number {
+  color: rgb(151, 121, 77) !important;
+}
+
+.fc-daygrid-event .fc-event-time,
+.fc-daygrid-event .fc-event-title {
+  color: rgb(97, 34, 50) !important;
+}
+
+.fc .fc-toolbar-title {
+  color: rgb(97, 34, 50) !important;
+}
+
+.fc .fc-highlight {
+  background: rgba(50, 90, 79, 0.6) !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: rgba(97, 34, 50, 0.5) !important;
+}

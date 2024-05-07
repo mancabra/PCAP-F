@@ -24,7 +24,8 @@
                             [(ngModel)]="tramite.idPrestador">
                             <option value="0" hidden disabled selected>Seleccione un prestador de la lista</option>
                             <option *ngFor="let p of prestadores" [value]="p.id_prestador"
-                                [selected]="p.id_prestador === tramite.idPrestador">{{p.nombre}}</option>
+                                [selected]="p.id_prestador === tramite.idPrestador">{{p.nombre}} {{p.apellidoP}}
+                                {{p.apellidoM}}</option>
                         </select>
                     </div>
                     <div class="form-group mb-3">

@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { GestionService } from '../../../services/gestion.service';
 
 import { OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TramiteDto } from 'src/app/models/dto/tramiteDto';
-import { PrestadorModel } from 'src/app/models/prestador.model';
 import { TramiteService } from 'src/app/services/tramite.service';
 
 @Component({
@@ -15,22 +12,9 @@ import { TramiteService } from 'src/app/services/tramite.service';
 export class GestionPrestadoresComponent implements OnInit {
   p: number = 1;
   busqueda: string = '';
-  prestadores: Map<PrestadorModel, string> = new Map<PrestadorModel, string>();
-  busquedaProyecto: Map<PrestadorModel, string> = new Map<
-    PrestadorModel,
-    string
-  >();
-  busquedaPrestador: Map<PrestadorModel, string> = new Map<
-    PrestadorModel,
-    string
-  >();
   tramites: TramiteDto[] = [];
 
-  constructor(
-    private _tramiteService: TramiteService,
-    private _gestionService: GestionService,
-    private _router: Router
-  ) {}
+  constructor(private _tramiteService: TramiteService) {}
 
   buscarPor() {
     let filtros = document.getElementById('dd-menu') as HTMLSelectElement;
@@ -40,20 +24,26 @@ export class GestionPrestadoresComponent implements OnInit {
       this.buscarPorPrestador(this.busqueda);
     } else if (filtroSeleccionado === 'proyecto') {
       this.buscarPorProyecto(this.busqueda);
-      this.busquedaPrestador = new Map<PrestadorModel, string>();
+    } else if (filtroSeleccionado === 'prioridad') {
+      this.buscarPorPrioridad(this.busqueda);
     }
   }
 
   buscarPorProyecto(nombreProyecto: string) {
-    // Vaciar mapa de busqueda por proyecto
-    this.busquedaProyecto = new Map<PrestadorModel, string>();
-
-    // Buscar por nombre de proyecto
-    this.prestadores.forEach((proyecto, prestador) => {
-      if (proyecto.toLowerCase().includes(nombreProyecto.toLowerCase())) {
-        this.busquedaProyecto.set(prestador, proyecto);
-      }
+    let tramitesPorPrestador = this.tramites.filter((tramite) => {
+      return (
+        tramite.prestadorDTO.proyectoDTO.nombre.toLowerCase() ===
+        nombreProyecto.toLowerCase()
+      );
     });
+    this.tramites = tramitesPorPrestador;
+  }
+
+  buscarPorPrioridad(prioridad: string) {
+    let tramitesPorPrestador = this.tramites.filter((tramite) => {
+      return tramite.prioridad.nombre.toLowerCase() === prioridad.toLowerCase();
+    });
+    this.tramites = tramitesPorPrestador;
   }
 
   buscarPorPrestador(nombrePrestador: string) {

@@ -8,9 +8,9 @@
         <div class=" d-flex">
           <div class="search">
             <i id="input-icon" class="bi bi-search"></i>
-            <input type="text" placeholder="PRESTADOR" class="form-group input-field">
+            <input type="text" placeholder="PRESTADOR" class="form-group input-field" [(ngModel)]="busqueda">
           </div>
-          <button id="search-btn" class="btn">BUSCAR</button>
+          <button id="search-btn" class="btn" (click)="buscarPrestador()">BUSCAR</button>
         </div>
       </div>
     </div>
@@ -25,6 +25,7 @@
             <th scope="col">Telefono</th>
             <th scope="col">Proyecto</th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody class="table-body">
@@ -38,6 +39,11 @@
             <td>
               <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarPrestador(pres)">
                 <i class="bi bi-check-circle-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn sel-btn" title="ver detalles">
+                <i class="bi bi-arrow-right-short"></i>
               </button>
             </td>
           </tr>

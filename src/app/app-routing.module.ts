@@ -16,7 +16,6 @@ import { PrincipalComponent } from './components/windows/principal/principal.com
 import { ProyectosComponent } from './components/windows/proyectos/proyectos.component';
 import { RegistroComponent } from './components/windows/registro/registro.component';
 import { TramiteComponent } from './components/windows/tramite/tramite.component';
-import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
 import { adminGuard } from './services/admin.guard';
 import { authGuard } from './services/auth.guard';
 
@@ -35,7 +34,7 @@ const routes: Routes = [
       { path: 'delete', component: DeleteComponent },
       { path: 'avisos', component: PrincipalComponent },
       { path: 'generar', component: RegistroComponent },
-      { path: 'tramites', component: TramitesActivosComponent },
+      { path: 'tramites', component: GestionPrestadoresComponent },
       { path: 'proyectos', component: ProyectosComponent },
       { path: 'prestadores', component: PrestadoresComponent },
       { path: 'calendario', component: GenerarComponent },

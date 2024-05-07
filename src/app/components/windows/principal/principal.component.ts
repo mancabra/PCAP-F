@@ -25,6 +25,7 @@ export class PrincipalComponent implements OnInit {
     selectable: true,
     height: 650,
     aspectRatio: 2,
+    eventColor: 'rgb(218, 202, 168)',
   };
 
   events = [];

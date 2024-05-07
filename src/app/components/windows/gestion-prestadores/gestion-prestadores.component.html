@@ -4,12 +4,19 @@
 <div class="card">
   <div class="card-body">
     <div class="d-flex justify-content-between align-items-center">
-      <select id="dd-menu" class="dd-menu">
-        <option value="" disabled selected hidden>Buscar por</option>
-        <option class="dd-item" value="prestador">Prestador</option>
-        <option class="dd-item" value="proyecto">Proyecto</option>
-      </select>
-      <button id="reset-filters" (click)="quitarFiltro()">QUITAR FILTRO</button>
+      <div class="d-flex">
+        <select id="dd-menu" class="dd-menu">
+          <option value="" disabled selected hidden>Buscar por</option>
+          <option class="dd-item" value="prestador">Prestador</option>
+          <option class="dd-item" value="proyecto">Proyecto</option>
+          <option class="dd-item" value="prioridad">Prioridad</option>
+        </select>
+        <button id="reset-filters" class="ms-2" (click)="quitarFiltro()">QUITAR FILTRO</button>
+      </div>
+      <div>
+        <button id="reset-filters" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">AGREGAR
+          TRAMITE</button>
+      </div>
       <div class="d-flex justify-content-end align-items-middle">
         <div class="search">
           <i id="input-icon" class="bi bi-search"></i>
@@ -22,81 +29,48 @@
 </div>
 
 <div class="table-responsive">
-  <table class="table table-borderless text-center align-middle"
-    *ngIf="busquedaProyecto.size == 0 && busquedaPrestador.size == 0">
+  <table class="table table-borderless text-center align-middle">
     <thead class="table-header">
       <tr>
         <th scope="col">ID</th>
+        <th scope="col">Trámite</th>
+        <th scope="col">Prioridad</th>
         <th scope="col">Prestador</th>
         <th scope="col">Proyecto</th>
-        <th scope="col">Trámite</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody class="table-body">
       <tr *ngFor="let tramite of tramites">
         <td>{{ tramite.id }}</td>
+        <td>{{ tramite.nombre }}</td>
+        <td>{{tramite.prioridad.nombre}}</td>
         <td>{{ tramite.prestadorDTO.nombre }} {{ tramite.prestadorDTO.apellidoP }} {{ tramite.prestadorDTO.apellidoM }}
         </td>
         <td>{{ tramite.prestadorDTO.proyectoDTO.nombre }}</td>
-        <td>{{ tramite.nombre }}</td>
         <td>
           <button class="btn action-btn">VER TRAMITE</button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
 
-  <table class="table table-borderless text-center align-middle"
-    *ngIf="busquedaPrestador.size > 0 && busquedaProyecto.size == 0">
-    <thead class="table-header">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Prestador</th>
-        <th scope="col">Proyecto</th>
-        <th scope="col">Trámite</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody class="table-body">
-      <tr *ngFor="let pres of busquedaPrestador | keyvalue |
-    paginate: { itemsPerPage: 5, currentPage: p, totalItems: busquedaPrestador.size }">
-        <td>{{ pres.key.id_prestador }}</td>
-        <td>{{ pres.key.nombre }} {{ pres.key.apellidoP }}</td>
-        <td>{{ pres.value }}</td>
-        <td>Trámite de credencial</td>
-        <td>
-          <button class="btn action-btn">VER TRAMITE</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <table class="table table-borderless text-center align-middle"
-    *ngIf="busquedaPrestador.size == 0 && busquedaProyecto.size > 0">
-    <thead class="table-header">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Prestador</th>
-        <th scope="col">Proyecto</th>
-        <th scope="col">Trámite</th>
-        <th scope="col">Acciones</th>
-      </tr>
-    </thead>
-    <tbody class="table-body">
-      <tr *ngFor="let pres of busquedaProyecto | keyvalue |
-    paginate: { itemsPerPage: 5, currentPage: p, totalItems: busquedaProyecto.size }">
-        <td>{{ pres.key.id_prestador }}</td>
-        <td>{{ pres.key.nombre }} {{ pres.key.apellidoP }}</td>
-        <td>{{ pres.value }}</td>
-        <td>Trámite de credencial</td>
-        <td>
-          <button class="btn action-btn">VER TRAMITE</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <div class="d-flex justify-content-center">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">TRAMITE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-form-tramite></app-form-tramite>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
   </div>
 </div>
