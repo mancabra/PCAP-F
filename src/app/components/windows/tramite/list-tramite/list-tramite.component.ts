@@ -22,7 +22,9 @@ export class ListTramiteComponent implements OnInit {
   }
 
   private obtenerTramites() {
-    this._TramiteService.getTramites().subscribe((data) => {
+    let userObject = JSON.parse(localStorage.getItem('user') || '{}');
+    let id_gestor = userObject.id_usuario;
+    this._TramiteService.getTramites(id_gestor).subscribe((data) => {
       this.tramites = data;
       console.log(data);
     });

@@ -1,119 +1,78 @@
-
-<div class="container mt-5 mb-5">
-  <div class="encabezado text-center mb-5">
-    <!--{{ prestador.nombre }} {{prestador.apellido}} / {{ prestador.tramites[0].nombre }}-->
-  </div>
-  <div class="progress">
-    <div class="str-progress">{{ strProgreso }}</div> <i id="progress-icon" class="bi bi-clock-fill"></i>
-  </div>
-  <progress class="progress-bar mb-5" max="100" [value]="progreso"></progress>
-  <div class="contenidos">
-    <div class="izquierda">
-      <div class="encabezadoContenido">
-        <div class="nombreEstapa">
-          <b> ACTIVIDAD ACTUAL:</b>
+<div class="container">
+  <h2 class="text-center mv-title mt-5">PANEL DE ADMINISTRACIÓN DE IRREGULARIDADES</h2>
+  <div class="d-flex justify-content-evenly">
+    <div class="container form">
+      <div class="col-md-8 container">
+        <div class="row d-flex justify-content-center mt-2">
+              <div class="card-body">
+                <form>
+                  <div class="form-group mb-3 table">
+                    <label class="mb-1 input-label" for="nombre">Irregularidad</label>
+                    <input class="form-control form-control-md" type="text" id="nombre" name="nombre" [(ngModel)]="irregularidad.nombre">
+                  </div>
+                  <div class="form-group mb-3">
+                    <label class="mb-1 input-label" for="representante">Descripción</label>
+                      <input class="form-control form-control-md" type="text" id="descripcion" name="descripcion" [(ngModel)]="irregularidad.descripcion">
+                  </div>
+                  <div class="d-flex justify-content-end align-items-middle">
+                    <button *ngIf="!irregularidadEncontrada" class="btn btn-primary save-btn" type="submit" (click)="crearIrregularidad(irregularidad)">
+                      <div>Guardar</div>
+                      <i class="bi bi-floppy2-fill"></i>
+                    </button>
+                  </div>
+                  <div class="d-flex justify-content-end align-items-middle">
+                    <button *ngIf="irregularidadEncontrada" class="btn btn-primary update-btn" type="submit" (click)="modificarIrregularidad(irregularidad)">
+                      <div>Actualizar</div>
+                      <i class="bi bi-arrow-clockwise"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
         </div>
-        <div class="botonDerecha fuenteBtn">
-          <button class="btn btInfotecV">COMPLETAR</button>
-        </div>
-      </div>
-      <div class="decripcionEtapa">
-       <!-- <b>{{ prestador.tramites[0].descripcion }}</b>-->
+        
       </div>
     </div>
-    <div class="derecha">
-      <div class="encabezadoContenido">
-        <div class="nombreEstapa">
-          <b> SIGUIENTE ACTIVIDAD:</b>
-        </div>
-      </div>
-      <div class="decripcionEtapa">
-        <b>descripcionDeSiguienteProceso</b>
-      </div>
-    </div>
-  </div>
-
-  <div class="contenidos">
-    <div class="izquierda">
-      <div class="tituloIrregularidad">
-        <label>IRREGULARIDAD ACTUAL:</label>
-      </div>
-
-      <div name="btnAgregarIrregularidad" class="contendedorBtn" >
-        <button (click)="nuevo()" class="btn btInfotecR" >AGREGAR IRREGULARIDAD</button>
-      </div>
-      <div *ngFor="let irregularidad of listaIrregularidades">
-        <div class="irregularidad dimenciones">
-          <div class="card margenes irregularidadR">
-            <div style="display: flex;">
-              <div class="contenidoIrregularidad">
-                <div class="contenedorImagen">
-                  <img class="imagenes" src="../assets/calendar-sad.png">
-                </div>
-                <div class="nombreIrregularidad">
-                  {{ irregularidad.nombre }}
-                </div>
-                <!--<div>
-                  <button class="btn btInfotecVC">completar</button>
-                </div>-->
-              </div>
-              <div class="bordeR">
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div name="btnMarcarCompleta " class="contendedorBtn fondo">
-        <button class="btn btInfotecVC">MARCAR COMO COMPLETA</button>
-        <button class="btn btInfotecVC">EDITAR IRREGULARIDAD</button>
-      </div>
-    </div>
-    <div class="derecha">
-      <div class="tituloIrregularidad">
-        <label>IRREGULARIDADES COMPLETADAS:</label>
-      </div>
-      <div class="contenedorCompletas">
-        <div class="irregularidad dimenciones">
-          <div class="card margenes irregularidadV">
-            <div style="display: flex;">
-              <div class="contenidoIrregularidad">
-                <div class="contenedorImagen">
-                  <img class="imagenes" src="../assets/calendar-smile.png">
-                </div>
-                <div class="nombreIrregularidad">
-                  nombreIregularidad
-                </div>
-              </div>
-              <div class="bordeV">
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="contenedorCompletas">
-        <div class="irregularidad dimenciones">
-          <div class="card margenes irregularidadV">
-            <div style="display: flex;">
-              <div class="contenidoIrregularidad">
-                <div class="contenedorImagen">
-                  <img class="imagenes" src="../assets/calendar-smile.png">
-                </div>
-                <div class="nombreIrregularidad">
-                  nombreIregularidad
-                </div>
-              </div>
-              <div class="bordeV">
-                &nbsp;
-              </div>
+    <div class="container list">
+      <div class="col-md-12 container">
+        <div class="row d-flex justify-content-center mt-2">
+          <div class="col">
+            <div class="table-responsive">
+              <table class="table table-borderless text-center align-middle">
+                <thead class="table-header">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Estatus</th>
+                  <th scope="col">Modificar</th>
+                  <th scope="col">Completar</th>
+                </tr>
+                </thead>
+                <tbody class="table-body">
+                <tr *ngFor="let i of listaIrregularidades">
+                  <td>{{ i.id_irregularidad }}</td>
+                  <td>{{ i.nombre }}</td>
+                  <td>{{ i.descripcion }}</td>
+                  <td>{{ i.estatus == true ? 'Pendiente' : 'Completado' }}</td>
+                  <td>
+                    <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarIrregularidad(i)"><i class="bi bi-pencil-fill"></i></button>
+                  </td>
+                  <td>
+                    <button class="btn del-btn" title="Completar" (click)="eliminarIrregularidad(i)"><i class="bi bi-check-circle-fill"></i></button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+  <div class="row col-md-12">
+
+
+  </div>
 </div>
+
+

@@ -4,5 +4,5 @@ export class Irregularidad {
     descripcion: string="";
     id_ticket: number=0;
     estatus: boolean=true;
-    
+    id_tramite: number=0;
 }

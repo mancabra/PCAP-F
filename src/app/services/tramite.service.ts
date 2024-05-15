@@ -14,8 +14,8 @@ export class TramiteService {
 
   constructor(private _http: HttpClient) {}
 
-  getTramites(): Observable<TramiteDto[]> {
-    return this._http.get<TramiteDto[]>(this.urlEndPoint + '/tramites');
+  getTramites(id_gestor: any): Observable<TramiteDto[]> {
+    return this._http.get<TramiteDto[]>(this.urlEndPoint + '/tramites/'+id_gestor);
   }
 
   seleccionar(tramite: any) {

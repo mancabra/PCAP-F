@@ -21,6 +21,9 @@ export class EstatusTramiteComponent implements OnInit {
   progreso: number = 0;
   strProgreso: string = '';
   listaIrregularidades: any[] = [];
+  irregularidad: Irregularidad = new Irregularidad();
+  descripcion: string = "";
+  irregularidadEncontrada: boolean = false;
 
 
 
@@ -60,7 +63,8 @@ export class EstatusTramiteComponent implements OnInit {
     this.idTramite = this._gestionService.getTramiteID();
     this.idPrestador = this._gestionService.getPrestadorID();
     this.obtenerIrregularidadesPorTramite(this.idTramite);
-    setTimeout(() => {
+    /*setTimeout(() => {
+      debugger;
       this._gestionService.getPrestador(this.idPrestador).subscribe(prestador => this.prestador = prestador);
     }, 10);
 
@@ -71,7 +75,7 @@ export class EstatusTramiteComponent implements OnInit {
     setTimeout(() => {
       console.log(this.prestador);
       //this.setProgreso(this.prestador.tramites[0].estatus);
-    }, 100);
+    }, 100);*/
 
   }
 
@@ -83,5 +87,33 @@ export class EstatusTramiteComponent implements OnInit {
   nuevo(){
     this._router.navigate(["add"]);
   }
+
+  seleccionarIrregularidad(irregularidad:Irregularidad){
+    this.irregularidadEncontrada = true;
+    this.irregularidad=irregularidad;
+  }
+  eliminarIrregularidad(irregularidad:Irregularidad){
+    this._irregularidadService.eliminar(irregularidad.id_irregularidad).subscribe(data=>{
+      this.obtenerIrregularidadesPorTramite(this.idTramite);
+    });
+  }
+  crearIrregularidad(irregularidad:Irregularidad){
+    irregularidad.id_tramite=this.idTramite;
+    this._irregularidadService.crearIrregularidad(irregularidad).subscribe(data=>{
+      this.obtenerIrregularidadesPorTramite(this.idTramite);
+      this.limpiarFormulario();
+    });
+  }
+  modificarIrregularidad(irregularidad:Irregularidad){
+    this._irregularidadService.editar(irregularidad).subscribe(data=>{
+      this.obtenerIrregularidadesPorTramite(this.idTramite);
+      this.limpiarFormulario();
+    });
+  }
+  limpiarFormulario(){
+    this.irregularidad = new Irregularidad();
+    this.irregularidadEncontrada = false;
+  }
+  
 
 }
