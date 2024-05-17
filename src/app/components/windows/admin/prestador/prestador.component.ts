@@ -13,6 +13,11 @@ import Swal from 'sweetalert2';
 export class PrestadorComponent implements OnInit {
   p: number = 1;
   prestadores: PrestadorModel[] = [];
+
+  page!: number;
+  busqueda: string = '';
+  items: number = 10;
+
   constructor(
     private _proyectoService: ProyectoService,
     private _prestadorService: PrestadorService,
@@ -57,6 +62,11 @@ export class PrestadorComponent implements OnInit {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate(['administrador']).then();
     });
+  }
+
+  onSearchPrestador(search: string) {
+    this.page = 0;
+    this.busqueda = search;
   }
 
   ngOnInit() {

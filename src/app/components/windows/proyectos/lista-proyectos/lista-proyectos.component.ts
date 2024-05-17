@@ -1,21 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {Proyecto} from "../../../../models/proyecto";
-import {ProyectoService} from "../../../../services/proyecto.service";
-import Swal from "sweetalert2";
+import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { Proyecto } from '../../../../models/proyecto';
+import { ProyectoService } from '../../../../services/proyecto.service';
 
 @Component({
   selector: 'app-lista-proyectos',
   templateUrl: './lista-proyectos.component.html',
-  styleUrls: ['./lista-proyectos.component.css']
+  styleUrls: ['./lista-proyectos.component.css'],
 })
 export class ListaProyectosComponent implements OnInit {
-  nombreProyecto: string = "";
+  nombreProyecto: string = '';
   proyecto: Proyecto = new Proyecto();
   proyectos: Proyecto[] = [];
   proyectoEncontrado: boolean = false;
+  page!: number;
+  items: number = 5;
 
-  constructor(private _proyectoService: ProyectoService) {
-  }
+  constructor(private _proyectoService: ProyectoService) {}
 
   seleccionarProyecto(proyecto: Proyecto) {
     this._proyectoService.seleccionar(proyecto);
@@ -23,7 +24,8 @@ export class ListaProyectosComponent implements OnInit {
 
   buscarProyecto() {
     let busqueda = this.proyectos.find(
-      proyecto => proyecto.nombre.toLowerCase() === this.nombreProyecto.toLowerCase()
+      (proyecto) =>
+        proyecto.nombre.toLowerCase() === this.nombreProyecto.toLowerCase()
     );
     if (busqueda != undefined) {
       this.proyecto = busqueda;
@@ -33,7 +35,7 @@ export class ListaProyectosComponent implements OnInit {
         icon: 'error',
         title: 'No se encontraron resultados',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
       });
       this.proyectoEncontrado = false;
     }
@@ -47,9 +49,9 @@ export class ListaProyectosComponent implements OnInit {
       showCancelButton: false,
       confirmButtonText: 'Eliminar',
       denyButtonText: 'Cancelar',
-    }).then(result => {
+    }).then((result) => {
       if (result.isConfirmed) {
-        this._proyectoService.eliminar(id).subscribe(proyecto => {
+        this._proyectoService.eliminar(id).subscribe((proyecto) => {
           this.actualizarListaProyectos();
         });
         Swal.fire('¡Proyecto eliminado!', '', 'success').then();
@@ -61,10 +63,9 @@ export class ListaProyectosComponent implements OnInit {
     this.actualizarListaProyectos();
   }
 
-  actualizarListaProyectos(){
-    this._proyectoService.getProyectos().subscribe(proyectos => {
+  actualizarListaProyectos() {
+    this._proyectoService.getProyectos().subscribe((proyectos) => {
       this.proyectos = proyectos;
     });
   }
-
 }

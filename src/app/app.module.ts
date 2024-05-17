@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import localeEs from '@angular/common/locales/es';
+import localeEsMX from '@angular/common/locales/es-MX';
 
 import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -23,8 +23,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { EstatusTramiteComponent } from './components/windows/estatus-tramite/estatus-tramite.component';
 import { GenerarComponent } from './components/windows/generar/generar.component';
 import { GestionPrestadoresComponent } from './components/windows/gestion-prestadores/gestion-prestadores.component';
-import { GestionPrioridadComponent } from './components/windows/gestion-prioridad/gestion-prioridad.component';
-import { GestionTramitesComponent } from './components/windows/gestion-tramites/gestion-tramites.component';
 import { FormPrestadoresComponent } from './components/windows/prestadores/form-prestadores/form-prestadores.component';
 import { ListaPrestadoresComponent } from './components/windows/prestadores/lista-prestadores/lista-prestadores.component';
 import { PrestadoresComponent } from './components/windows/prestadores/prestadores.component';
@@ -38,8 +36,10 @@ import { ListTramiteComponent } from './components/windows/tramite/list-tramite/
 import { TramiteComponent } from './components/windows/tramite/tramite.component';
 import { TramitesActivosComponent } from './components/windows/tramites-activos/tramites-activos.component';
 import { authInterceptorProviders } from './interceptor/auth.interceptor';
+import { PrestadorPipe } from './pipes/prestador.pipe';
+import { TramitePipe } from './pipes/tramite.pipe';
 
-registerLocaleData(localeEs, 'es');
+registerLocaleData(localeEsMX, 'es-MX');
 
 @NgModule({
   declarations: [
@@ -50,9 +50,7 @@ registerLocaleData(localeEs, 'es');
     GenerarComponent,
     TramitesActivosComponent,
     EstatusTramiteComponent,
-    GestionTramitesComponent,
     GestionPrestadoresComponent,
-    GestionPrioridadComponent,
     ProyectosComponent,
     FormProyectosComponent,
     ListaProyectosComponent,
@@ -67,6 +65,8 @@ registerLocaleData(localeEs, 'es');
     TramiteComponent,
     FormTramiteComponent,
     ListTramiteComponent,
+    TramitePipe,
+    PrestadorPipe,
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@
   justify-content: space-evenly;
   width: 25vw;
   height: 15vh;
-  border: 1px solid #B2B2B2;
+  border: 1px solid #b2b2b2;
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
@@ -26,23 +26,23 @@
 }
 
 .mv-option:hover {
-  background-color: #E7E7E7;
-  color: #6A6A6A;
+  background-color: #e7e7e7;
+  color: #6a6a6a;
 }
 
 .mv-option:focus {
-  border: #BC955C;
-  box-shadow: 0 0 3px 3px #BC955C;
+  border: #bc955c;
+  box-shadow: 0 0 3px 3px #bc955c;
 }
 
 .mv-opt-title {
-  color: #10312B;
+  color: #10312b;
   font-weight: bold;
   text-align: left;
 }
 
 .mv-opt-text {
-  color: #B2B2B2;
+  color: #b2b2b2;
   text-decoration: none;
   word-break: break-word;
   align-items: center;
@@ -53,19 +53,20 @@
   font-size: 2.5rem;
 }
 
-.inner-text, #project-id {
+.inner-text,
+#project-id {
   margin: 0;
   font-size: 0.75rem;
 }
 
 #project-id {
-  color: #F7F7F7;
+  color: #f7f7f7;
   font-weight: bold;
 }
 
 .card {
   width: 100%;
-  background-color: #235B4E;
+  background-color: #235b4e;
   border-radius: 5px 5px 0 0;
   border-bottom: none;
 }
@@ -73,28 +74,28 @@
 .dropdown-btn {
   width: 6rem;
   height: 2rem;
-  background-color: #BC955C;
-  color: #F7F7F7;
+  background-color: #bc955c;
+  color: #f7f7f7;
   font-size: 0.6rem;
   font-weight: bold;
   text-transform: uppercase;
-  border: 1px solid #F7F7F7;
+  border: 1px solid #f7f7f7;
 }
 
 .dropdown-btn:hover {
-  background-color: #DDC9A3;
+  background-color: #ddc9a3;
 }
 
 .dropdown-btn:active {
-  background-color: #9B7845;
-  color: #F7F7F7;
+  background-color: #9b7845;
+  color: #f7f7f7;
 }
 
 .dd-menu {
   height: 2rem;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   border-radius: 5px;
-  color: #BC955C;
+  color: #bc955c;
   font-size: 0.6rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -105,33 +106,33 @@
 }
 
 .dropdown-item {
-  color: #BC955C;
+  color: #bc955c;
   font-size: 0.6rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .dropdown-item:hover {
-  background-color: #E7E7E7;
-  color: #BC955C;
+  background-color: #e7e7e7;
+  color: #bc955c;
 }
 
 #reset-filters {
   height: 2rem;
-  background-color: #BC955C;
+  background-color: #bc955c;
   font-size: 0.6rem;
   font-weight: bold;
-  color: #F7F7F7;
+  color: #f7f7f7;
   border-radius: 5px;
-  border: 1px solid #F7F7F7;
+  border: 1px solid #f7f7f7;
 }
 
 #reset-filters:hover {
-  background-color: #DDC9A3;
+  background-color: #ddc9a3;
 }
 
 #reset-filters:active {
-  background-color: #9B7845;
+  background-color: #9b7845;
 }
 
 .search {
@@ -142,7 +143,7 @@
   width: 30vw;
   height: 2rem;
   border-radius: 1rem 0 0 1rem;
-  border: 1px solid #F7F7F7;
+  border: 1px solid #f7f7f7;
   border-right: none;
   padding-left: 30px;
   text-align: center;
@@ -158,33 +159,33 @@
 #search-btn {
   width: 4rem;
   height: 2rem;
-  background-color: #BC955C;
-  color: #F7F7F7;
+  background-color: #bc955c;
+  color: #f7f7f7;
   font-size: 0.6rem;
   font-weight: bold;
   border-radius: 0 1rem 1rem 0;
-  border: 1px solid #F7F7F7;
+  border: 1px solid #f7f7f7;
   border-left: none;
 }
 
 #search-btn:hover {
-  background-color: #DDC9A3;
+  background-color: #ddc9a3;
 }
 
 #search-btn:active {
-  background-color: #9B7845;
+  background-color: #9b7845;
 }
 
 table {
   width: 100%;
-  border: 2px solid #235B4E;
+  border: 2px solid #235b4e;
   border-radius: 0 0 5px 5px;
   border-collapse: separate;
   border-spacing: 0;
 }
 
 table tr:hover {
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
 }
 
 table tr:last-child td:first-child {
@@ -196,38 +197,37 @@ table tr:last-child td:first-child {
 }
 
 th {
-  border: 2px solid #F7F7F7;
+  border: 2px solid #f7f7f7;
   border-bottom: 0;
-  background-color: #235B4E;
+  background-color: #235b4e;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #F7F7F7;
+  color: #f7f7f7;
 }
 
 tbody {
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #BC955C;
+  color: #bc955c;
 }
 
 .action-btn {
   height: 1.8rem;
-  background-color: #BC955C;
+  background-color: #bc955c;
   border: none;
-  color: #F7F7F7;
+  color: #f7f7f7;
   font-size: 0.6rem;
   font-weight: bold;
 }
 
 .action-btn:hover {
-  background-color: #DDC9A3;
+  background-color: #ddc9a3;
 }
 
 .action-btn:active {
-  background-color: #9B7845;
-  color: #F7F7F7;
+  background-color: #9b7845;
+  color: #f7f7f7;
 }
-

@@ -53,3 +53,7 @@ body {
 .fc .fc-daygrid-day.fc-day-today {
   background-color: rgba(97, 34, 50, 0.5) !important;
 }
+
+.ngx-pagination .current {
+  background: rgb(97, 34, 50) !important;
+}

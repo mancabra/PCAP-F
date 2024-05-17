@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
 export class GestorComponent {
   p: number = 1;
   gestores: Gestor[] = [];
+  page!: number;
+  busqueda: string = '';
+  items: number = 10;
   constructor(
     private _proyectoService: ProyectoService,
     private _gestorService: GestorService,
@@ -21,6 +24,11 @@ export class GestorComponent {
 
   seleccionarGestor(gestor: Gestor) {
     this._gestorService.seleccionar(gestor);
+  }
+
+  onSearchGestor(search: string) {
+    this.page = 0;
+    this.busqueda = search;
   }
 
   eliminarGestor(id: number) {

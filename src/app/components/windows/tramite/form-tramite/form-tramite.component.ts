@@ -46,7 +46,6 @@ export class FormTramiteComponent {
 
     this._TramiteService.getPrioridades().subscribe((data) => {
       this.prioridades = data;
-      console.log(this.prioridades);
     });
   }
 

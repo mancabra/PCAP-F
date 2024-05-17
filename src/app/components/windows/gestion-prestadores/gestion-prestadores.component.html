@@ -5,24 +5,19 @@
   <div class="card-body">
     <div class="d-flex justify-content-between align-items-center">
       <div class="d-flex">
-        <select id="dd-menu" class="dd-menu">
+        <select id="dd-menu" class="dd-menu" [(ngModel)]="filtro">
           <option value="" disabled selected hidden>Buscar por</option>
           <option class="dd-item" value="prestador">Prestador</option>
           <option class="dd-item" value="proyecto">Proyecto</option>
           <option class="dd-item" value="prioridad">Prioridad</option>
         </select>
-        <button id="reset-filters" class="ms-2" (click)="quitarFiltro()">QUITAR FILTRO</button>
-      </div>
-      <div>
-        <button id="reset-filters" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">AGREGAR
+        <button id="reset-filters" class="btn ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal">AGREGAR
           TRAMITE</button>
       </div>
-      <div class="d-flex justify-content-end align-items-middle">
-        <div class="search">
-          <i id="input-icon" class="bi bi-search"></i>
-          <input type="text" placeholder="" class="form-group input-field" [(ngModel)]="busqueda">
-        </div>
-        <button id="search-btn" class="btn" (click)="buscarPor()">BUSCAR</button>
+      <div class="search">
+        <i id="input-icon" class="bi bi-search"></i>
+        <input type="text" placeholder="" class="form-group input-field" #txtSearch
+          (keyup)="onSearchTramite( txtSearch.value )">
       </div>
     </div>
   </div>
@@ -41,7 +36,7 @@
       </tr>
     </thead>
     <tbody class="table-body">
-      <tr *ngFor="let tramite of tramites">
+      <tr *ngFor="let tramite of tramites | tramite: busqueda | paginate: { itemsPerPage: items, currentPage: page }">
         <td>{{ tramite.id }}</td>
         <td>{{ tramite.nombre }}</td>
         <td>{{tramite.prioridad.nombre}}</td>
@@ -54,7 +49,13 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="d-flex justify-content-center mt-2">
+    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+      nextLabel="Siguiente"></pagination-controls>
+  </div>
 </div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -13,6 +13,8 @@ export class ListaPrestadoresComponent implements OnInit {
   p: number = 1;
   prestadores: PrestadorModel[] = [];
   busqueda: string = '';
+  page!: number;
+  items: number = 10;
 
   constructor(
     private _prestadorService: PrestadorService,
@@ -34,22 +36,14 @@ export class ListaPrestadoresComponent implements OnInit {
     });
   }
 
-  buscarPrestador() {
-    let prestadoresFilter = this.prestadores.filter((prestador) => {
-      return (
-        prestador.nombre.toLowerCase() === this.busqueda.toLowerCase() ||
-        prestador.nombre.toLowerCase() +
-          ' ' +
-          prestador.apellidoP.toLowerCase() ===
-          this.busqueda.toLowerCase()
-      );
-    });
-    this.prestadores = prestadoresFilter;
-  }
-
   private updateComponent() {
     this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this._router.navigate(['Principal/prestadores']).then();
     });
+  }
+
+  onSearchPrestador(search: string) {
+    this.page = 0;
+    this.busqueda = search;
   }
 }

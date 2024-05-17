@@ -34,16 +34,74 @@
             <input type="text" class="form-control" id="description" name="description" aria-describedby="title"
               [(ngModel)]="event.description">
           </div>
-          <!--  <div class="mb-3">
-                        <label for="url" class="form-label">URL</label>
-                        <input type="text" class="form-control" id="url" name="url" aria-describedby="url"
-                            [(ngModel)]="event.url">
-                    </div> -->
+          <!-- <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input type="text" class="form-control" id="url" name="url" aria-describedby="url" [(ngModel)]="event.url">
+          </div> -->
         </form>
       </div>
       <div class=" modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-primary" (click)="guardarEvento()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edicion de eventos -->
+<div class="modal" id="myModal" (hidden.bs.modal)="editar = false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Encabezado del modal -->
+      <div class="modal-header">
+        <h4 class="modal-title" id="titleEvent">{{eventEdit.title}}</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Contenido del modal -->
+      <div class="modal-body" *ngIf="!editar">
+        <p>{{eventEdit.description}}</p>
+        <p>{{eventEdit.start}}</p>
+        <p>{{eventEdit.end}}</p>
+        <!--  <p>URL: {{eventEdit.url}}</p> -->
+      </div>
+
+      <!-- Editar Evento -->
+      <div class="modal-body" *ngIf="editar">
+        <form>
+          <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="title" name="title" aria-describedby="title"
+              [(ngModel)]="eventEdit.title">
+          </div>
+          <div class="mb-3">
+            <label for="start" class="form-label">Inicio</label>
+            <input type="date" class="form-control" id="start" name="start" [ngModel]="formatDate(eventEdit.start)">
+          </div>
+          <div class="mb-3">
+            <label for="end" class="form-label">Fin</label>
+            <input type="date" class="form-control" id="end" name="end" [ngModel]="formatDate(eventEdit.end)">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripcion</label>
+            <input type="text" class="form-control" id="description" name="description" aria-describedby="title"
+              [(ngModel)]="eventEdit.description">
+          </div>
+          <!-- <div class="mb-3">
+            <label for="url" class="form-label">URL</label>
+            <input type="text" class="form-control" id="url" name="url" aria-describedby="url"
+              [(ngModel)]="eventEdit.url">
+          </div> -->
+        </form>
+      </div>
+
+      <!-- Pie del modal -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="actualizarEvento()">Editar</button>
+        <button type="button" class="btn btn-danger" (click)="eliminarEvento(eventEdit.id)"
+          *ngIf="!editar">Eliminar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

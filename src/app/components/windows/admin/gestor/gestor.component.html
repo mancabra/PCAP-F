@@ -9,9 +9,9 @@
                 <div class=" d-flex">
                     <div class="search">
                         <i id="input-icon" class="bi bi-search"></i>
-                        <input type="text" placeholder="GESTOR" class="form-group input-field">
+                        <input type="text" placeholder="GESTOR" class="form-group input-field" #txtSearch
+                            (keyup)="onSearchGestor( txtSearch.value )">
                     </div>
-                    <button id="search-btn" class="btn">BUSCAR</button>
                 </div>
             </div>
             <div class="table-responsive">
@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody class="table-body">
-                        <tr *ngFor="let gestor of gestores">
+                        <tr *ngFor="let gestor of gestores | paginate: { itemsPerPage: items, currentPage: page }">
                             <td>{{ gestor.id_gestor }}</td>
                             <td>{{ gestor.nombre }}</td>
                             <td>{{ gestor.apellidoP }} {{ gestor.apellidoM}}</td>
@@ -49,6 +49,10 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+                nextLabel="Siguiente"></pagination-controls>
         </div>
     </div>
 

@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody class="table-body">
-            <tr *ngFor="let p of proyectos">
+            <tr *ngFor="let p of proyectos | paginate: { itemsPerPage: items, currentPage: page }">
               <td>{{ p.id }}</td>
               <td>{{ p.nombre }}</td>
               <td>{{ p.fechaInicio | date: "dd-MM-yy" }}</td>
@@ -76,6 +76,11 @@
         </table>
       </div>
     </div>
+    <div class="d-flex justify-content-center mt-2">
+      <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+        nextLabel="Siguiente"></pagination-controls>
+    </div>
+
   </div>
 
   <!-- Modal -->

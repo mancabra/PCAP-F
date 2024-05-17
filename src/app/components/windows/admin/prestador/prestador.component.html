@@ -9,9 +9,9 @@
                 <div class=" d-flex">
                     <div class="search">
                         <i id="input-icon" class="bi bi-search"></i>
-                        <input type="text" placeholder="PRESTADOR" class="form-group input-field">
+                        <input type="text" placeholder="PRESTADOR" class="form-group input-field" #txtSearch
+                            (keyup)="onSearchPrestador( txtSearch.value )">
                     </div>
-                    <button id="search-btn" class="btn">BUSCAR</button>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody class="table-body">
-                    <tr *ngFor="let pres of prestadores">
+                    <tr *ngFor="let pres of prestadores | paginate: { itemsPerPage: items, currentPage: page }">
                         <td>{{ pres.id_prestador }}</td>
                         <td>{{ pres.nombre }}</td>
                         <td>{{ pres.apellidoP }} {{ pres.apellidoM}}</td>
@@ -52,6 +52,10 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="d-flex justify-content-center mt-2">
+        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+            nextLabel="Siguiente"></pagination-controls>
     </div>
 </div>
 

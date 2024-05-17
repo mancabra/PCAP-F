@@ -9,8 +9,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { EstatusTramiteComponent } from './components/windows/estatus-tramite/estatus-tramite.component';
 import { GenerarComponent } from './components/windows/generar/generar.component';
 import { GestionPrestadoresComponent } from './components/windows/gestion-prestadores/gestion-prestadores.component';
-import { GestionPrioridadComponent } from './components/windows/gestion-prioridad/gestion-prioridad.component';
-import { GestionTramitesComponent } from './components/windows/gestion-tramites/gestion-tramites.component';
+
 import { PrestadoresComponent } from './components/windows/prestadores/prestadores.component';
 import { PrincipalComponent } from './components/windows/principal/principal.component';
 import { ProyectosComponent } from './components/windows/proyectos/proyectos.component';
@@ -38,9 +37,6 @@ const routes: Routes = [
       { path: 'proyectos', component: ProyectosComponent },
       { path: 'prestadores', component: PrestadoresComponent },
       { path: 'calendario', component: GenerarComponent },
-      { path: 'gestion/proyectos', component: GestionTramitesComponent },
-      { path: 'gestion/prestadores', component: GestionPrestadoresComponent },
-      { path: 'gestion/prioridad', component: GestionPrioridadComponent },
       //secundarias
       {
         path: 'tramites/activos/proyecto/estatus',
