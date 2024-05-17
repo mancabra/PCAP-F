@@ -1,201 +1,130 @@
-.coloresInfotec{
-    color:rgb(97, 34, 50);
-    color:rgb(147, 46, 66);
-    color:rgb(186, 116, 137);
-    color:rgb(24, 48, 43);
-    color:rgb(50, 90, 79);
-    color:rgb(151, 121, 77);
-    color:rgb(182, 150, 100);
-    color:rgb(218, 202, 168);
-}
-
-.contenedor{
-    display: grid;
-    width: 100vw;
-    height: 100%;
-    place-items: center;
-    padding: 4rem;
-}
-.encabezado{
-    display: grid;
-    width: 100%;
-    height: 20px;
-    color: rgb(50, 90, 79);
-    font-size: xx-large;
-}
-
-.progress {
-  display: flex;
-  justify-content: center;
-  height: 30px;
-  background-color: white;
-  font-weight: bold;
-  font-size: large;
-  color: #235B4E;
-}
-
-.str-progress {
-  margin-right: 5px;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 15px;
-  border-radius: 7px;
-}
-
-progress::-webkit-progress-value { background: rgb(50, 90, 79); }
-
-
-.contenidos{
+table {
+    border: 2px solid rgb(147, 46, 66);
+    border-radius: 5px 5px 5px 5px ;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  
+  table th:last-child {
+    border-left: none;
+  }
+  
+  table th:nth-child(6) {
+    border-right: none;
+  }
+  
+  th {
+    background-color: #10312B;
+    color: #F7F7F7;
+    border: 2px solid #F7F7F7;
+    border-bottom: 0;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  tbody {
+    background-color: #F7F7F7;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #BC955C;
+  }
+  
+  tr:hover {
+    background-color: #E7E7E7;
+  }
+  
+  .sel-btn {
+    height: 3rem;
+    width: 3rem;
+    background-color: #BC955C;
+    color: #F7F7F7;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 1.5rem;
+  }
+  
+  .sel-btn:hover {
+    background-color: #DDC9A3;
+  }
+  
+  .sel-btn:active {
+    background-color: #9B7845;
+  }
+  
+  .del-btn {
+    height: 3rem;
+    width: 3rem;
+    background-color: #198754;
+    color: #F7F7F7;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 1.5rem;
+  }
+  
+  .del-btn:hover {
+    background-color: #10312B;
+  }
+  
+  .del-btn:active {
+    background-color: #491721;
+  }
+  
+  .card {
     display: flex;
-    width: 100%;
-}
-.izquierda{
-    width: 48%;
-    margin-right: 2%;
-}
-.derecha{
-    display: grid;
-    width: 48%;
-    margin-left: 2%;
-}
-
-.encabezadoContenido{
-    display: flex;
-    width: 100%;
-}
-.nombreEstapa{
-    display: grid;
-    width: 58%;
-    margin-right: 2%;
-    font-size: large;
-    color: rgb(50, 90, 79);
-}
-.botonDerecha{
-    display: grid;
-    width: 30%;
-    margin-left: 2%;
-}
-.btInfotecV{
-    padding: 3px;
-    width: 100%;
-    border-color: rgb(50, 90, 79);
-    color: white;
-    background-color: rgb(50, 90, 79);
-}
-.fuenteBtn{
-    font-size: small;
-}
-.btInfotecV:hover{
-    border-color: rgb(24, 48, 43);
-    color: white;
-    background-color: rgb(24, 48, 43);
-}
-
-.decripcionEtapa{
-    margin-top: .3rem;
-    width: 100%;
-    color: rgb(182, 150, 100);
-    font-size: larger;
-}
-
-.tituloIrregularidad{
-    color: rgb(50, 90, 79);
-    padding-top: 3rem;
-}
-.contendedorBtn{
-    display: grid;
-    width: 100;
-    margin-top: 1rem;
-}
-.btInfotecR{
-    border-color: rgb(147, 46, 66);
-    color: white;
-    background-color: rgb(147, 46, 66);
-    font-size:large;
-}
-.btInfotecR:hover{
- border-color: rgb(97, 34, 50);
- color: white;
- background-color: rgb(97, 34, 50);
-}
-
-.btInfotecVC{
-    border-color: rgb(50, 90, 79);
-    color: white;
-    background-color: rgb(50, 90, 79);
-    font-size:large;
-}
-.btInfotecVC:hover{
- border-color: rgb(24, 48, 43);
- color: white;
- background-color:rgb(24, 48, 43)
-}
-.fondo{
-    height: 38%;
-    align-items: end;
-}
-
-.irregularidad{
-    display:grid;
-    width: 100%;
-}
-.margenes{
-    margin-top: 1rem;
-    padding: 0%;
-    margin-bottom: 3rem;
-}
-
-.irregularidadR{
-    border-color: rgb(147, 46, 66);
-}
-.irregularidadV{
-    border-color: rgb(50, 90, 79)
-}
-.contenidoIrregularidad{
-    display: flex;
-    width: 97%;
-    padding: 1rem;
-}
-.bordeR{
-    display: grid;
-    width: 3%;
-    height: 100%;
-    border-radius: 0px 5px 5px 0px;
-    background-color: rgb(147, 46, 66);
-}
-.bordeV{
-    display: grid;
-    width: 3%;
-    height: 100%;
-    border-radius: 0px 5px 5px 0px;
-    background-color: rgb(50, 90, 79)
-}
-.contenedorImagen{
-    display: grid;
-}
-.imagenes{
-    opacity: 50%;
-    height: 60px;
-    width: 60px;
-}
-.nombreIrregularidad{
-    display: grid;
-    width: 100%;
-    place-items: center;
-    opacity: 50%;
-    color: black;
-}
-
-.dimenciones{
-    height: 92px;
-    margin-bottom: 1rem;
-}
-
-.contenedorCompletas{
-    display: grid;
-    opacity: .4;
-    place-items:start;
-
-}
+    justify-content: center;
+    height: 3rem;
+    background-color: #10312B;
+    border: 2px solid rgb(147, 46, 66);
+    border-bottom: none;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .search-container {
+    margin-right: 5px;
+  }
+  
+  .search {
+    position: relative;
+  }
+  
+  .input-field {
+    width: 30vw;
+    height: 2rem;
+    border-radius: 1rem 0 0 1rem;
+    border: 1px solid #F7F7F7;
+    border-right: none;
+    padding-left: 30px;
+    text-align: center;
+    font-size: 0.75rem;
+  }
+  
+  #input-icon {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+  }
+  
+  #search-btn {
+    width: 4rem;
+    height: 2rem;
+    background-color: #BC955C;
+    color: #F7F7F7;
+    font-size: 0.6rem;
+    font-weight: bold;
+    border-radius: 0 1rem 1rem 0;
+    border: 1px solid #F7F7F7;
+    border-left: none;
+  }
+  
+  #search-btn:hover {
+    background-color: #DDC9A3;
+  }
+  
+  #search-btn:active {
+    background-color: #9B7845;
+  }
+  
