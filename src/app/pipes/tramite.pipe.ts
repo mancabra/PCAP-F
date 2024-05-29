@@ -18,7 +18,7 @@ export class TramitePipe implements PipeTransform {
           tramite.prestadorDTO.nombre
             .toLowerCase()
             .includes(search.toLowerCase()) ||
-          tramite.prestadorDTO.proyectoDTO.nombre
+          tramite.prestadorDTO.proyecto.nombre
             .toLowerCase()
             .includes(search.toLowerCase()) ||
           tramite.prioridad.nombre.toLowerCase().includes(search.toLowerCase())
@@ -31,7 +31,7 @@ export class TramitePipe implements PipeTransform {
       );
     } else if (filter === 'proyecto') {
       filteredTramites = filteredTramites.filter((tramite) =>
-        tramite.prestadorDTO.proyectoDTO.nombre
+        tramite.prestadorDTO.proyecto.nombre
           .toLowerCase()
           .includes(search.toLowerCase())
       );

@@ -98,10 +98,10 @@
 
       <!-- Pie del modal -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="actualizarEvento()">Editar</button>
-        <button type="button" class="btn btn-danger" (click)="eliminarEvento(eventEdit.id)"
+        <button type="button" class="btn sel-btn" (click)="actualizarEvento()">Editar</button>
+        <button type="button" class="btn del-btn" (click)="eliminarEvento(eventEdit.id)"
           *ngIf="!editar">Eliminar</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+        <!-- <button type="button" class="btn sel-btn" data-bs-dismiss="modal">Cerrar</button> -->
       </div>
     </div>
   </div>

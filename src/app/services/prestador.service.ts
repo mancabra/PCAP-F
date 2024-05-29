@@ -13,8 +13,10 @@ export class PrestadorService {
   $prestadorSeleccionado: Subject<any> = new Subject<any>();
   constructor(private _http: HttpClient) {}
 
-  getPrestadores() {
-    return this._http.get<PrestadorModel[]>(this.urlEndPoint + '/prestadores');
+  getPrestadores(estado: string = 'CONTRATADO') {
+    return this._http.get<PrestadorModel[]>(
+      this.urlEndPoint + `/prestadores?estado=${estado}`
+    );
   }
 
   getPrestador(id: number) {

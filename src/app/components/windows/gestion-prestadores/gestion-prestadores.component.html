@@ -1,5 +1,5 @@
 <div class="container">
-  <h4 class="mv-opt-title mt-5 mb-5">GESTION DE TRAMITES POR PRESTADOR</h4>
+  <h4 class="mv-opt-title mt-5 mb-5">GESTION DE TRAMITES</h4>
 </div>
 <div class="card">
   <div class="card-body">
@@ -42,7 +42,7 @@
         <td>{{tramite.prioridad.nombre}}</td>
         <td>{{ tramite.prestadorDTO.nombre }} {{ tramite.prestadorDTO.apellidoP }} {{ tramite.prestadorDTO.apellidoM }}
         </td>
-        <td>{{ tramite.prestadorDTO.proyectoDTO.nombre }}</td>
+        <td>{{ tramite.prestadorDTO.proyecto.nombre }}</td>
         <td>
           <button class="btn action-btn" (click)="goToTramites(tramite.id)">VER TRAMITE</button>
         </td>

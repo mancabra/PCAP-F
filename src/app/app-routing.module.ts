@@ -10,6 +10,7 @@ import { EstatusTramiteComponent } from './components/windows/estatus-tramite/es
 import { GenerarComponent } from './components/windows/generar/generar.component';
 import { GestionPrestadoresComponent } from './components/windows/gestion-prestadores/gestion-prestadores.component';
 
+import { PerfilPrestadorComponent } from './components/windows/perfil-prestador/perfil-prestador.component';
 import { PrestadoresComponent } from './components/windows/prestadores/prestadores.component';
 import { PrincipalComponent } from './components/windows/principal/principal.component';
 import { ProyectosComponent } from './components/windows/proyectos/proyectos.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
       { path: 'tramites', component: GestionPrestadoresComponent },
       { path: 'proyectos', component: ProyectosComponent },
       { path: 'prestadores', component: PrestadoresComponent },
+      { path: 'prestadores/:id', component: PerfilPrestadorComponent },
       { path: 'calendario', component: GenerarComponent },
       //secundarias
       {

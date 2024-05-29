@@ -1,0 +1,272 @@
+<div class="container mt-5 d-flex justify-content-between">
+
+    <!-- CONTENEDOR IZQUIERDO -->
+    <div>
+        <!-- PERFIL -->
+        <div class="card me-1" style="width: 18rem;">
+            <div class="d-flex justify-content-center mt-2 mb-2">
+                <img src="
+                https://img.freepik.com/psd-gratis/3d-ilustracion-persona-calva_23-2149436183.jpg?t=st=1716927414~exp=1716931014~hmac=49183bd0ecb1d02f10eb89c02901a38c7bf57f0617d34964f66410c0a70652b5&w=826"
+                    class="card-img-top" alt="...">
+            </div>
+            <div class="card-body datos">
+                <h4 class="card-title">{{prestador.nombre}} {{prestador.apellidoP}} {{prestador.apellidoM}}</h4>
+                <p class="card-subtitle estatus">{{prestador.estado}}</p>
+                <p class="card-text proyecto" *ngIf="prestador.proyecto">Proyecto: {{prestador.proyecto.nombre}}</p>
+                <button class="update-btn" data-bs-toggle="modal" data-bs-target="#modelaPrestador">Editar</button>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{prestador.correo}}</li>
+                <li class="list-group-item">{{prestador.telefono}}</li>
+            </ul>
+            <div class="card-body d-flex flex-wrap justify-content-between">
+                <div>
+                    <input type="checkbox" [(ngModel)]="prestador.curp" disabled>
+                    <label class="form-check-label" for="flexCheckDefault">CURP</label>
+                </div>
+                <div>
+                    <input type="checkbox" [(ngModel)]="prestador.ine" disabled>
+                    <label class="form-check-label" for="flexCheckDefault">INE</label>
+                </div>
+                <div>
+                    <input type="checkbox" [(ngModel)]="prestador.eFirma" disabled>
+                    <label class="form-check-label" for="flexCheckDefault">eFirma</label>
+                </div>
+                <div>
+                    <input type="checkbox" [(ngModel)]="prestador.actaNacimiento" disabled>
+                    <label class="form-check-label" for="flexCheckDefault">Acta de nacimiento</label>
+                </div>
+                <div>
+                    <input type="checkbox" [(ngModel)]="prestador.comprobanteDomicilio" disabled>
+                    <label class="form-check-label" for="flexCheckDefault">Comprobante de domicilio</label>
+                </div>
+                <div>
+                    <input type="checkbox" [(ngModel)]="prestador.cuentaBancaria" disabled>
+                    <label class="form-check-label" for="flexCheckDefault">Cuenta bancaria</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR CENTRAL -->
+    <div>
+        <!-- CALENDARIO -->
+        <!-- <div>
+            <full-calendar [events]="events" [options]="calendarOptions"></full-calendar>
+        </div>
+ -->
+        <!-- TRAMITES -->
+        <div class="row d-flex justify-content-center ms-1 me-1" *ngIf="tramites.length > 0">
+            <div class="col">
+                <div class="card cardlist">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <button id="reset-filters" class="btn me-2" data-bs-toggle="modal"
+                                data-bs-target="#modelaTramite">Tramite</button>
+                            <div class="search">
+                                <i id="input-icon" class="bi bi-search"></i>
+                                <input type="text" placeholder="" class="form-group input-field" #txtSearch>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-borderless text-center align-middle">
+                        <thead class="table-header">
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Prioridad</th>
+                                <th scope="col">fecha limite</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            <tr *ngFor="let tramite of tramites">
+                                <td>{{tramite.nombre}}</td>
+                                <td>{{tramite.prioridad.nombre}}</td>
+                                <td>{{tramite.fechaLimite}}</td>
+                                <td>
+                                    <button class="btn sel-btn" title="Seleccionar"
+                                        (click)="seleccionarTramite(tramite)">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="btn del-btn" title="Eliminar" (click)="eliminarTramite(tramite.id)">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- LETRERO -->
+        <div class="card" style="width: 18rem;" *ngIf="tramites.length <= 0">
+            <div class="card-body">
+                <h4 class="card-title">No hay Tramites</h4>
+                <button id="reset-filters" class="btn me-2" data-bs-toggle="modal"
+                    data-bs-target="#modelaTramite">Tramite</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTENEDOR DERECHO -->
+    <div>
+        <!-- CARTA HISTORIAL -->
+        <div class="card ms-1" style="width: 18rem;">
+            <div class="d-flex justify-content-center mt-2">
+                <h3>Historial</h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Proyecto 1</li>
+                <li class="list-group-item">Proyecto 2</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal de tramite-->
+<div class="modal fade" id="modelaTramite" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">TRAMITE</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="nombre">Nombre</label>
+                        <input class="form-control form-control-md" type="text" id="nombre" name="nombre"
+                            [(ngModel)]="tramite.nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="descripcion">Descripcion</label>
+                        <input class="form-control form-control-md" type="text" id="descripcion" name="descripcion"
+                            [(ngModel)]="tramite.descripcion">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="fechaLimite">Fecha Limite</label>
+                        <input class="form-control form-control-md" type="date" id="fechaLimite" name="fechaLimite"
+                            [(ngModel)]="tramite.fechaLimite">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="prioridad">Prioridad</label>
+                        <select class="form-control form-control-md" id="prioridad" name="prioridad"
+                            [(ngModel)]="tramite.prioridad">
+                            <option value="0" hidden disabled selected>Seleccione la prioridad del tramite</option>
+                            <option *ngFor="let prioridad of prioridades" [ngValue]="prioridad"
+                                [selected]="prioridad.id === tramite.prioridad.id">{{prioridad.nombre}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary save-btn" type="submit" (click)="guardarTramite()">
+                    <div>Guardar</div>
+                    <i class="bi bi-floppy2-fill"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de prestador -->
+<div class="modal fade" id="modelaPrestador" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Prestador</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="nombre">Nombre</label>
+                        <input class="form-control form-control-md" type="text" id="nombre" name="nombre"
+                            [(ngModel)]="prestadorEdit.nombre">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="apellidoP">Apellido Paterno</label>
+                        <input class="form-control form-control-md" type="text" id="apellidoP" name="apellidoP"
+                            [(ngModel)]="prestadorEdit.apellidoP">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="apellidoM">Apellido Materno</label>
+                        <input class="form-control form-control-md" type="text" id="apellidoM" name="apellidoM"
+                            [(ngModel)]="prestadorEdit.apellidoM">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="correo">Email</label>
+                        <input class="form-control form-control-md" type="text" id="correo" name="correo"
+                            [(ngModel)]="prestadorEdit.correo">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="telefono">Telefono</label>
+                        <input class="form-control form-control-md" type="number" id="telefono" name="telefono"
+                            [(ngModel)]="prestadorEdit.telefono">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="curp" id="curp"
+                            [(ngModel)]="prestadorEdit.curp">
+                        <label class="form-check-label" for="flexCheckDefault">CURP</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="actaNacimiento" id="actaNacimiento"
+                            [(ngModel)]="prestadorEdit.actaNacimiento">
+                        <label class="form-check-label" for="flexCheckDefault">Acta de nacimiento</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="ine" id="ine"
+                            [(ngModel)]="prestadorEdit.ine">
+                        <label class="form-check-label" for="flexCheckDefault">INE</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="eFirma" id="eFirma"
+                            [(ngModel)]="prestadorEdit.eFirma">
+                        <label class="form-check-label" for="flexCheckDefault">eFirma</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="comprobanteDomicilio"
+                            id="comprobanteDomicilio" [(ngModel)]="prestadorEdit.comprobanteDomicilio">
+                        <label class="form-check-label" for="flexCheckDefault">Comprobante de domicilio</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="cuentaBancaria" id="cuentaBancaria"
+                            [(ngModel)]="prestadorEdit.cuentaBancaria">
+                        <label class="form-check-label" for="flexCheckDefault">Cuenta bancaria</label>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="telefono">Detalles</label>
+                        <input class="form-control form-control-md" type="text-area" id="detalle" name="detalle"
+                            [(ngModel)]="prestadorEdit.detalle">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-1 input-label" for="proyecto">Proyecto</label>
+                        <select class="form-control form-control-md" id="proyecto" name="proyecto"
+                            [(ngModel)]="prestadorEdit.id_proyecto" [disabled]="!documentosCompletos()">
+                            <option value="0" hidden disabled selected>Seleccione un proyecto de la lista</option>
+                            <option *ngFor="let p of proyectos" [value]="p.id"
+                                [selected]="p.id === prestadorEdit.id_proyecto">{{
+                                p.nombre }}</option>
+                        </select>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary update-btn" type="submit" (click)="actualizarPrestador()">
+                    <div>Actualizar</div>
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

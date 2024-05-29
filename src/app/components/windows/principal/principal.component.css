@@ -77,3 +77,35 @@
   background-color: rgb(24, 48, 43);
   border-color: rgb(24, 48, 43);
 }
+
+.sel-btn {
+  height: 3rem;
+  width: 8rem;
+  background-color: #bc955c;
+  color: #f7f7f7;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.sel-btn:hover {
+  background-color: #ddc9a3;
+}
+
+.sel-btn:active {
+  background-color: #9b7845;
+}
+
+.del-btn {
+  height: 3rem;
+  width: 8rem;
+  background-color: rgb(97, 34, 50);
+  color: #f7f7f7;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+}
+
+.del-btn:hover {
+  background-color: rgb(147, 46, 66);
+}

@@ -1,9 +1,7 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import localeEsMX from '@angular/common/locales/es-MX';
 
 import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -38,8 +36,7 @@ import { TramitesActivosComponent } from './components/windows/tramites-activos/
 import { authInterceptorProviders } from './interceptor/auth.interceptor';
 import { PrestadorPipe } from './pipes/prestador.pipe';
 import { TramitePipe } from './pipes/tramite.pipe';
-
-registerLocaleData(localeEsMX, 'es-MX');
+import { PerfilPrestadorComponent } from './components/windows/perfil-prestador/perfil-prestador.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +64,7 @@ registerLocaleData(localeEsMX, 'es-MX');
     ListTramiteComponent,
     TramitePipe,
     PrestadorPipe,
+    PerfilPrestadorComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +78,7 @@ registerLocaleData(localeEsMX, 'es-MX');
     FormsModule,
     FullCalendarModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'es' }, authInterceptorProviders],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

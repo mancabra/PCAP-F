@@ -28,10 +28,42 @@
             <input class="form-control form-control-md" type="number" id="telefono" name="telefono"
               [(ngModel)]="prestador.telefono">
           </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="curp" id="curp" [(ngModel)]="prestador.curp">
+            <label class="form-check-label" for="flexCheckDefault">CURP</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="actaNacimiento" id="actaNacimiento"
+              [(ngModel)]="prestador.actaNacimiento">
+            <label class="form-check-label" for="flexCheckDefault">Acta de nacimiento</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="ine" id="ine" [(ngModel)]="prestador.ine">
+            <label class="form-check-label" for="flexCheckDefault">INE</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="eFirma" id="eFirma" [(ngModel)]="prestador.eFirma">
+            <label class="form-check-label" for="flexCheckDefault">eFirma</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="comprobanteDomicilio" id="comprobanteDomicilio"
+              [(ngModel)]="prestador.comprobanteDomicilio">
+            <label class="form-check-label" for="flexCheckDefault">Comprobante de domicilio</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="cuentaBancaria" id="cuentaBancaria"
+              [(ngModel)]="prestador.cuentaBancaria">
+            <label class="form-check-label" for="flexCheckDefault">Cuenta bancaria</label>
+          </div>
+          <div class="form-group mb-3">
+            <label class="mb-1 input-label" for="telefono">Detalles</label>
+            <input class="form-control form-control-md" type="text-area" id="detalle" name="detalle"
+              [(ngModel)]="prestador.detalle">
+          </div>
           <div class="form-group mb-3">
             <label class="mb-1 input-label" for="proyecto">Proyecto</label>
             <select class="form-control form-control-md" id="proyecto" name="proyecto"
-              [(ngModel)]="prestador.id_proyecto">
+              [(ngModel)]="prestador.id_proyecto" [disabled]="!documentosCompletos()">
               <option value="0" hidden disabled selected>Seleccione un proyecto de la lista</option>
               <option *ngFor="let p of proyectos" [value]="p.id" [selected]="p.id === prestador.id_proyecto">{{
                 p.nombre }}</option>

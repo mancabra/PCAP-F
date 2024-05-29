@@ -15,6 +15,7 @@ export class ListaPrestadoresComponent implements OnInit {
   busqueda: string = '';
   page!: number;
   items: number = 10;
+  estado: string = 'CONTRATADO';
 
   constructor(
     private _prestadorService: PrestadorService,
@@ -27,6 +28,10 @@ export class ListaPrestadoresComponent implements OnInit {
 
   seleccionarPrestador(prestador: PrestadorModel) {
     this._prestadorService.seleccionar(prestador);
+  }
+
+  verDetalle(prestador: PrestadorModel) {
+    this._router.navigate(['Principal/prestadores', prestador.id_prestador]);
   }
 
   private obtenerPrestadores() {
@@ -45,5 +50,13 @@ export class ListaPrestadoresComponent implements OnInit {
   onSearchPrestador(search: string) {
     this.page = 0;
     this.busqueda = search;
+  }
+
+  verCandidatos() {
+    this.estado = 'CANDIDATO';
+    this._prestadorService.getPrestadores(this.estado).subscribe((data) => {
+      this.prestadores = data;
+      console.log(this.prestadores);
+    });
   }
 }

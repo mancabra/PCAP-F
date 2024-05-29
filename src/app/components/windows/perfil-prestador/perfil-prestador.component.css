@@ -1,0 +1,248 @@
+table {
+  border: 2px solid rgb(147, 46, 66);
+  border-radius: 0 0 5px 5px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+table th:last-child {
+  border-left: none;
+}
+
+table th:nth-child(6) {
+  border-right: none;
+}
+
+th {
+  background-color: #10312b;
+  color: #f7f7f7;
+  border: 2px solid #f7f7f7;
+  border-bottom: 0;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+tbody {
+  background-color: #f7f7f7;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #bc955c;
+}
+
+tr:hover {
+  background-color: #e7e7e7;
+}
+
+.sel-btn {
+  height: 3rem;
+  width: 3rem;
+  background-color: #bc955c;
+  color: #f7f7f7;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1.5rem;
+}
+
+.sel-btn:hover {
+  background-color: #ddc9a3;
+}
+
+.sel-btn:active {
+  background-color: #9b7845;
+}
+
+.del-btn {
+  height: 3rem;
+  width: 3rem;
+  background-color: rgb(97, 34, 50);
+  color: #f7f7f7;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1.5rem;
+}
+
+.del-btn:hover {
+  background-color: rgb(147, 46, 66);
+}
+
+.del-btn:active {
+  background-color: #491721;
+}
+
+.search-container {
+  margin-right: 5px;
+}
+
+.cardlist {
+  width: 100%;
+  background-color: #235b4e;
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+}
+
+.search {
+  position: relative;
+}
+
+.input-field {
+  width: 30vw;
+  height: 2rem;
+  border-radius: 1rem 0 0 1rem;
+  border: 1px solid #f7f7f7;
+  border-right: none;
+  padding-left: 30px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+#input-icon {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+
+#search-btn {
+  width: 4rem;
+  height: 2rem;
+  background-color: #bc955c;
+  color: #f7f7f7;
+  font-size: 0.6rem;
+  font-weight: bold;
+  border-radius: 0 1rem 1rem 0;
+  border: 1px solid #f7f7f7;
+  border-left: none;
+}
+
+#search-btn:hover {
+  background-color: #ddc9a3;
+}
+
+#search-btn:active {
+  background-color: #9b7845;
+}
+
+#reset-filters {
+  background-color: #bc955c;
+  font-size: 0.7rem;
+
+  color: #f7f7f7;
+  border-radius: 5px;
+  border: 1px solid #f7f7f7;
+}
+
+#reset-filters:hover {
+  background-color: #ddc9a3;
+}
+
+#reset-filters:active {
+  background-color: #9b7845;
+}
+
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.input-label {
+  color: #bc955c;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#nombre,
+#apellido {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+#email {
+  font-size: 0.75rem;
+}
+
+#proyecto {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+mat-label {
+  color: #bc955c;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.save-btn {
+  height: 3rem;
+  width: 8rem;
+  background-color: #10312b;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+}
+
+.save-btn:hover {
+  background-color: #235b4e;
+}
+
+.save-btn:active {
+  background-color: #0c2722;
+}
+
+.update-btn {
+  width: 8rem;
+  color: #e7e7e7;
+  background-color: rgb(97, 34, 50);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+}
+
+.update-btn:hover {
+  background-color: rgb(147, 46, 66);
+}
+
+.update-btn:active {
+  background-color: #491721;
+}
+
+p,
+h4 {
+  margin: auto;
+}
+
+/* .card .datos {
+  background-color: #ddc9a3;
+  border-radius: 10px;
+} */
+
+.card h4 {
+  color: #0c2722;
+  font-weight: bold;
+}
+
+.card .estatus {
+  color: #491721;
+  font-weight: bold;
+}
+
+.card .proyecto {
+  color: #bc955c;
+  font-weight: bold;
+}
+
+.list-group-item {
+  text-align: center;
+  color: #0c2722;
+}

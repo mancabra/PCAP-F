@@ -1,9 +1,15 @@
 <div class="row d-flex justify-content-center mt-2">
   <div class="col">
     <div class="card">
-      <div class="d-flex justify-content-around align-items-center search-container">
-        <div>
-          <button class="btn save-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar prestador</button>
+      <div class="d-flex justify-content-between align-items-center search-container">
+        <div class="d-flex">
+          <div>
+            <button class="btn save-btn m-1" (click)="verCandidatos()">Ver candidatos</button>
+          </div>
+          <div>
+            <button class="btn save-btn m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar
+              prestador</button>
+          </div>
         </div>
         <div class=" d-flex">
           <div class="search">
@@ -36,14 +42,15 @@
             <td>{{ pres.apellidoP }} {{ pres.apellidoM}}</td>
             <td id="email">{{ pres.correo }}</td>
             <td>{{ pres.telefono }}</td>
-            <td>{{ pres.proyectoDTO.nombre }}</td>
+            <td *ngIf="pres.proyecto != null">{{ pres.proyecto.nombre }}</td>
+            <td *ngIf="pres.proyecto == null"></td>
             <td>
               <button class="btn sel-btn" title="Seleccionar" (click)="seleccionarPrestador(pres)">
                 <i class="bi bi-check-circle-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
               </button>
             </td>
             <td>
-              <button class="btn sel-btn" title="ver detalles">
+              <button class="btn sel-btn" title="ver detalles" (click)="verDetalle(pres)">
                 <i class="bi bi-arrow-right-short"></i>
               </button>
             </td>

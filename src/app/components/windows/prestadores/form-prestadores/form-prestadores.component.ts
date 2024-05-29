@@ -15,8 +15,9 @@ import { ProyectoService } from '../../../../services/proyecto.service';
   styleUrls: ['./form-prestadores.component.css'],
 })
 export class FormPrestadoresComponent implements OnInit {
-  proyectos: Proyecto[] = [];
   prestadores: PrestadorModel[] = [];
+
+  proyectos: any[] = [];
 
   prestador: PrestadorDto = new PrestadorDto();
   proyecto: ProyectoDto = new ProyectoDto();
@@ -43,15 +44,33 @@ export class FormPrestadoresComponent implements OnInit {
         this.prestador.apellidoM = pres.apellidoM;
         this.prestador.correo = pres.correo;
         this.prestador.telefono = pres.telefono;
-        this.prestador.id_proyecto = pres.proyectoDTO.id;
+        this.prestador.id_proyecto = pres.proyecto.id;
+        this.prestador.curp = pres.curp;
+        this.prestador.actaNacimiento = pres.actaNacimiento;
+        this.prestador.ine = pres.ine;
+        this.prestador.eFirma = pres.eFirma;
+        this.prestador.comprobanteDomicilio = pres.comprobanteDomicilio;
+        this.prestador.cuentaBancaria = pres.cuentaBancaria;
+        this.prestador.detalle = pres.detalle;
         this.prestadorSeleccionado = true;
 
-        let nombreProyecto =
+        /* let nombreProyecto =
           this.proyectos.find((proyecto) =>
             proyecto.prestadoresDeServicio.includes(pres)
           )?.nombre || '';
-        this.getProyecto(nombreProyecto);
+        this.getProyecto(nombreProyecto); */
       });
+  }
+
+  documentosCompletos(): Boolean {
+    return (
+      this.prestador.curp &&
+      this.prestador.actaNacimiento &&
+      this.prestador.ine &&
+      this.prestador.comprobanteDomicilio &&
+      this.prestador.eFirma &&
+      this.prestador.cuentaBancaria
+    );
   }
 
   guardarPrestador() {
@@ -71,7 +90,7 @@ export class FormPrestadoresComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           }).then();
-
+          window.location.reload();
           setTimeout(() => {
             this.limpiarFormulario();
             this.updateComponent();
@@ -114,38 +133,6 @@ export class FormPrestadoresComponent implements OnInit {
     }
   }
 
-  proyectoSeleccionado() {
-    const proyectos = document.getElementById('proyecto') as HTMLSelectElement;
-    const proyectoSeleccionado = proyectos.value;
-
-    let proyecto = this.proyectos.find((proyecto) => {
-      return proyecto.nombre === proyectoSeleccionado;
-    });
-
-    if (proyecto != undefined) {
-      this.proyectoAsignado = proyecto;
-    }
-
-    setTimeout(() => {
-      console.log(this.proyectoAsignado);
-    }, 100);
-  }
-
-  getProyecto(nombreProyecto: string) {
-    const proyectos = document.getElementById('proyecto') as HTMLSelectElement;
-
-    let proyecto = this.proyectos.find((proyecto) => {
-      return proyecto.nombre === nombreProyecto;
-    });
-
-    let id = 0;
-    if (proyecto != undefined) {
-      id = this.proyectos.indexOf(proyecto);
-    }
-
-    proyectos.options[id + 1].selected = true;
-  }
-
   limpiarFormulario() {
     this.nombre = '';
     this.apellido = '';
@@ -163,8 +150,9 @@ export class FormPrestadoresComponent implements OnInit {
       this.prestadores = prestadores;
     });
 
-    this._proyectoService.getProyectos().subscribe((proyectos) => {
+    this._proyectoService.getAllProyectos().subscribe((proyectos) => {
       this.proyectos = proyectos;
+      console.log(this.proyectos);
     });
   }
 }
